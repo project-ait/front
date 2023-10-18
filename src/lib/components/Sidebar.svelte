@@ -2,6 +2,7 @@
 </script>
 
 <div class="sideBx">
+  <!-- 나중에 <i />에 icon 추가 -->
   <!--  -->
   <div class="side-btns">
     <div class="side-top-btns">
@@ -12,11 +13,21 @@
       <button class="side-close"><i /></button>
     </div>
     <ul class="side-chats">
-      {#each new Array(5).fill("") as arr, i}
-        <li>
-          <button>
-            <span><i /></span>
-            <span>{i}</span>
+      {#each new Array(15).fill("") as arr, i}
+        <li class="side-chat">
+          <button class="side-chat-btn">
+            <div class="side-chat-title">
+              <span><i /></span>
+              <span>{i}</span>
+            </div>
+            <div class="side-chat-btns">
+              <button>
+                <span><i /></span>
+              </button>
+              <button>
+                <span><i /></span>
+              </button>
+            </div>
           </button>
         </li>
       {/each}
@@ -24,6 +35,20 @@
   </div>
   <!-- / -->
   <div class="side-auth">
+    <button class="side-profile">
+      <div class="side-profile-info">
+        <span class="side-profile-img">
+          <img
+            alt=""
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU1fZ1s9LpZZY9vNhjYYP7TTC5H92EGpCcQ&usqp=CAU"
+          />
+        </span>
+        <span class="side-profile-name">Profile</span>
+      </div>
+      <div class="side-profile-opt">
+        <span><i /></span>
+      </div>
+    </button>
     <button class="side-profile">
       <div class="side-profile-info">
         <span class="side-profile-img">
@@ -79,7 +104,7 @@
     border: none;
     padding: 10px;
     border: 1px solid #474749;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
   }
 
@@ -117,23 +142,27 @@
   }
 
   /*  */
+
   .side-chats {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100%;
+    height: 500px;
     border-bottom: 1px solid #474749;
+    overflow-y: auto;
   }
 
-  .side-chats li {
+  .side-chat {
     width: 100%;
     margin-bottom: 10px;
   }
 
-  .side-chats li button {
+  .side-chat .side-chat-btn {
     width: 100%;
+    height: 50px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: transparent;
     border: none;
@@ -142,14 +171,17 @@
     border-radius: 10px;
   }
 
-  .side-chats li button:hover {
+  .side-chat .side-chat-btn:hover {
     background-color: #474749;
   }
 
-  .side-chats li button span i {
+  .side-chat .side-chat-btn .side-chat-title {
     display: flex;
-    justify-content: center;
     align-items: center;
+  }
+
+  .side-chat .side-chat-btn .side-chat-title span i {
+    display: block;
     width: 15px;
     height: 15px;
     border-radius: 10px;
@@ -157,12 +189,38 @@
     margin-right: 10px;
   }
 
-  .side-chats li button span:last-child {
+  .side-chat .side-chat-btn .side-chat-title span:last-child {
     font-size: 16px;
     color: white;
   }
 
+  .side-chat .side-chat-btn .side-chat-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .side-chat .side-chat-btn .side-chat-btns button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .side-chat .side-chat-btn .side-chat-btns button span i {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+    margin-right: 5px;
+  }
+
   /*  */
+
   .side-auth {
     display: flex;
     flex-direction: column;

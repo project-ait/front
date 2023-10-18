@@ -13,6 +13,6 @@
     display: flex;
     width: calc(100% - 200px);
     height: 100vh;
-    border: 1px solid black;
+    background-color: #343541;
   }
 </style>
