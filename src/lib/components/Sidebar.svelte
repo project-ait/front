@@ -1,0 +1,229 @@
+<script lang="ts">
+</script>
+
+<div class="sideBx">
+  <!--  -->
+  <div class="side-btns">
+    <div class="side-top-btns">
+      <button class="side-new">
+        <span><i /></span>
+        <span>New Chat</span>
+      </button>
+      <button class="side-close"><i /></button>
+    </div>
+    <ul class="side-chats">
+      {#each new Array(5).fill("") as arr, i}
+        <li>
+          <button>
+            <span><i /></span>
+            <span>{i}</span>
+          </button>
+        </li>
+      {/each}
+    </ul>
+  </div>
+  <!-- / -->
+  <div class="side-auth">
+    <button class="side-profile">
+      <div class="side-profile-info">
+        <span class="side-profile-img">
+          <img
+            alt=""
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU1fZ1s9LpZZY9vNhjYYP7TTC5H92EGpCcQ&usqp=CAU"
+          />
+        </span>
+        <span class="side-profile-name">Profile</span>
+      </div>
+      <div class="side-profile-opt">
+        <span><i /></span>
+      </div>
+    </button>
+  </div>
+  <!--  -->
+</div>
+
+<style>
+  .sideBx {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 100vh;
+    background-color: #202123;
+    padding: 8px 12px;
+  }
+
+  .side-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    width: 100%;
+  }
+
+  .side-top-btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .side-new {
+    display: flex;
+    align-items: center;
+    width: 77%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border: 1px solid #474749;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .side-new span i {
+    display: block;
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  .side-new span:last-child {
+    font-size: 14px;
+    color: white;
+  }
+
+  .side-close {
+    width: 20%;
+    height: 100%;
+    border-radius: 10px;
+    border: 1px solid #474749;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .side-close i {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
+  /*  */
+  .side-chats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #474749;
+  }
+
+  .side-chats li {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .side-chats li button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .side-chats li button:hover {
+    background-color: #474749;
+  }
+
+  .side-chats li button span i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+    margin-right: 10px;
+  }
+
+  .side-chats li button span:last-child {
+    font-size: 16px;
+    color: white;
+  }
+
+  /*  */
+  .side-auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .side-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .side-profile:hover {
+    background-color: #474749;
+  }
+
+  .side-profile-info {
+    display: flex;
+    align-items: center;
+  }
+
+  .side-profile-img {
+    display: block;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-right: 10px;
+    border-radius: 5px;
+  }
+
+  .side-profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .side-profile-name {
+    font-size: 16px;
+    color: white;
+  }
+
+  .side-profile-opt span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .side-profile-opt span i {
+    width: 15px;
+    height: 15px;
+    border-radius: 10px;
+    background-color: white;
+  }
+</style>
