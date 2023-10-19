@@ -7,9 +7,10 @@
 </svelte:head>
 
 <div class="main main-width" />
+<a href="/12/12">Go</a>
 
 <style>
   .main-width {
-    background-color: #444654;
+    background-color: #343540;
   }
 </style>

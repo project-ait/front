@@ -1,41 +1,41 @@
 <script lang="ts">
 </script>
 
-<div class="sideBx">
+<div class="side-container">
   <!-- 나중에 <i />에 icon 추가 -->
   <!--  -->
   <div class="side-btns">
     <div class="side-top-btns">
-      <button class="side-new">
-        <span><i /></span>
+      <a href="/" class="side-new">
+        <i />
         <span>New Chat</span>
-      </button>
-      <button class="side-close"><i /></button>
+      </a>
+      <a href="/" class="side-close"><i /></a>
     </div>
     <ul class="side-chats">
       {#each new Array(15).fill("") as arr, i}
         <li class="side-chat">
-          <button class="side-chat-btn">
+          <a href="/1/1" class="side-chat-btn">
             <div class="side-chat-title">
-              <span><i /></span>
+              <i />
               <span>Chat Btn</span>
             </div>
-            <div class="side-chat-edit">
-              <button>
-                <i />
-              </button>
-              <button>
-                <i />
-              </button>
-            </div>
-          </button>
+          </a>
+          <div class="side-chat-edit">
+            <a href="/">
+              <i />
+            </a>
+            <a href="/">
+              <i />
+            </a>
+          </div>
         </li>
       {/each}
     </ul>
   </div>
   <!-- / -->
   <div class="side-auth">
-    <button class="side-profile">
+    <a href="/login" class="side-profile">
       <div class="side-profile-info">
         <span class="side-profile-img">
           <img alt="" />
@@ -45,8 +45,8 @@
       <div class="side-profile-opt">
         <i />
       </div>
-    </button>
-    <button class="side-profile">
+    </a>
+    <a href="/login" class="side-profile">
       <div class="side-profile-info">
         <span class="side-profile-img">
           <img alt="" />
@@ -56,13 +56,16 @@
       <div class="side-profile-opt">
         <i />
       </div>
-    </button>
+    </a>
   </div>
   <!--  -->
 </div>
 
 <style>
-  .sideBx {
+  .side-container {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,7 +105,7 @@
     cursor: pointer;
   }
 
-  .side-new span i {
+  .side-new i {
     display: block;
     margin-right: 10px;
     width: 15px;
@@ -111,7 +114,7 @@
     background-color: white;
   }
 
-  .side-new span:last-child {
+  .side-new span {
     font-size: 14px;
     color: white;
   }
@@ -150,6 +153,7 @@
   .side-chat {
     width: 100%;
     margin-bottom: 10px;
+    position: relative;
   }
 
   .side-chat .side-chat-btn {
@@ -174,43 +178,47 @@
     align-items: center;
   }
 
-  .side-chat .side-chat-btn .side-chat-title span i {
+  .side-chat .side-chat-btn .side-chat-title i {
     display: block;
-    width: 15px;
-    height: 15px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     background-color: white;
     margin-right: 10px;
   }
 
-  .side-chat .side-chat-btn .side-chat-title span:last-child {
+  .side-chat .side-chat-btn .side-chat-title span {
     font-size: 16px;
     color: white;
   }
 
-  .side-chat .side-chat-btn .side-chat-edit {
+  .side-chat .side-chat-edit {
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    right: 5%;
+    transform: translate(0, -50%);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
   }
 
-  .side-chat .side-chat-btn .side-chat-edit button {
+  .side-chat .side-chat-edit a {
     cursor: pointer;
     background-color: transparent;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10px;
   }
 
-  .side-chat .side-chat-btn .side-chat-edit button i {
+  .side-chat .side-chat-edit button i {
     display: block;
     width: 15px;
     height: 15px;
     border-radius: 10px;
     background-color: white;
-    margin-right: 5px;
   }
 
   /*  */

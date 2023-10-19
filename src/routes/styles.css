@@ -4,6 +4,13 @@
   box-sizing: border-box;
   list-style: none;
   font-weight: bold;
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 10px;
+  }
 }
 
 body {
@@ -12,7 +19,14 @@ body {
   overflow-x: hidden;
 }
 
+a,
+a:hover {
+  color: currentColor;
+  text-decoration: none;
+}
+
 .main-width {
+  margin-left: 280px;
   width: calc(100% - 200px);
   height: 100vh;
   overflow-y: auto;

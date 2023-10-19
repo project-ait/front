@@ -18,7 +18,13 @@
       Content Content Content Content Content Content Content Content Content
       Content Content Content Content Content Content Content Content Content
       Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content
+      Content Content Content Content Content Contentt Content Content Content
+      Content Content Content Content Content Content Content Content Content
+      Content Content Content Content Content Content Content Content Content
+      Content Content Content Content Content Content Content Content Content
+      Content Content Content Content Content Content Content Content Content
+      Content Content Content Content Content Content Content Content Content
+      Content Content C
     </div>
   </div>
   <!-- Btn flex 나중에 구현 -->
@@ -31,8 +37,7 @@
     align-items: flex-start;
     width: 100%;
     height: auto;
-    min-height: 140px;
-    padding: 20px;
+    padding: 20px 40px;
   }
 
   .chat-main {
@@ -54,6 +59,7 @@
 
   .chat-content {
     width: 90%;
+    padding: 0 40px;
     font-size: 15px;
     color: white;
     word-break: break-all;
@@ -66,6 +72,6 @@
   }
 
   .ai-block-bg {
-    background-color: #343540;
+    background-color: #444654;
   }
 </style>
