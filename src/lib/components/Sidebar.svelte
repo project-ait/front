@@ -15,7 +15,7 @@
     <ul class="side-chats">
       {#each new Array(15).fill("") as arr, i}
         <li class="side-chat">
-          <a href="/1/1" class="side-chat-btn">
+          <a href="/1" class="side-chat-btn">
             <div class="side-chat-title">
               <i />
               <span>Chat Btn</span>
@@ -213,7 +213,7 @@
     margin-right: 10px;
   }
 
-  .side-chat .side-chat-edit button i {
+  .side-chat .side-chat-edit a i {
     display: block;
     width: 15px;
     height: 15px;
