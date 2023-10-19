@@ -6,13 +6,10 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div class="main" />
+<div class="main main-width" />
 
 <style>
-  .main {
-    display: flex;
-    width: calc(100% - 200px);
-    height: 100vh;
-    background-color: #343541;
+  .main-width {
+    background-color: #444654;
   }
 </style>

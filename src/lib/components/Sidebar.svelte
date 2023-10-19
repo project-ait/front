@@ -40,7 +40,7 @@
         <span class="side-profile-img">
           <img
             alt=""
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU1fZ1s9LpZZY9vNhjYYP7TTC5H92EGpCcQ&usqp=CAU"
+            src="https://png.pngtree.com/png-vector/20190224/ourmid/pngtree-vector-picture-icon-png-image_699739.jpg"
           />
         </span>
         <span class="side-profile-name">Profile</span>
@@ -54,7 +54,7 @@
         <span class="side-profile-img">
           <img
             alt=""
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU1fZ1s9LpZZY9vNhjYYP7TTC5H92EGpCcQ&usqp=CAU"
+            src="https://png.pngtree.com/png-vector/20190224/ourmid/pngtree-vector-picture-icon-png-image_699739.jpg"
           />
         </span>
         <span class="side-profile-name">Profile</span>
@@ -256,7 +256,7 @@
   .side-profile-img {
     display: block;
     width: 35px;
-    height: auto;
+    height: 35px;
     overflow: hidden;
     margin-right: 10px;
     border-radius: 5px;
