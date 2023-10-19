@@ -18,7 +18,7 @@
           <button class="side-chat-btn">
             <div class="side-chat-title">
               <span><i /></span>
-              <span>{i}</span>
+              <span>Chat Btn</span>
             </div>
             <div class="side-chat-edit">
               <button>
@@ -38,10 +38,7 @@
     <button class="side-profile">
       <div class="side-profile-info">
         <span class="side-profile-img">
-          <img
-            alt=""
-            src="https://png.pngtree.com/png-vector/20190224/ourmid/pngtree-vector-picture-icon-png-image_699739.jpg"
-          />
+          <img alt="" />
         </span>
         <span class="side-profile-name">Profile</span>
       </div>
@@ -52,10 +49,7 @@
     <button class="side-profile">
       <div class="side-profile-info">
         <span class="side-profile-img">
-          <img
-            alt=""
-            src="https://png.pngtree.com/png-vector/20190224/ourmid/pngtree-vector-picture-icon-png-image_699739.jpg"
-          />
+          <img alt="" />
         </span>
         <span class="side-profile-name">Profile</span>
       </div>
@@ -257,7 +251,6 @@
     display: block;
     width: 35px;
     height: 35px;
-    overflow: hidden;
     margin-right: 10px;
     border-radius: 5px;
   }

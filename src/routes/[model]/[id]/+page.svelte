@@ -1,9 +1,9 @@
 <script lang="ts">
-  import UserChatBlock from "$lib/components/UserChatBlock.svelte";
+  import ChatBlock from "$lib/components/ChatBlock.svelte";
 </script>
 
 <div class="chat-block main-width">
-  <UserChatBlock />
+  <ChatBlock />
 </div>
 
 <style>
