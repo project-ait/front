@@ -20,12 +20,12 @@
               <span><i /></span>
               <span>{i}</span>
             </div>
-            <div class="side-chat-btns">
+            <div class="side-chat-edit">
               <button>
-                <span><i /></span>
+                <i />
               </button>
               <button>
-                <span><i /></span>
+                <i />
               </button>
             </div>
           </button>
@@ -46,7 +46,7 @@
         <span class="side-profile-name">Profile</span>
       </div>
       <div class="side-profile-opt">
-        <span><i /></span>
+        <i />
       </div>
     </button>
     <button class="side-profile">
@@ -60,7 +60,7 @@
         <span class="side-profile-name">Profile</span>
       </div>
       <div class="side-profile-opt">
-        <span><i /></span>
+        <i />
       </div>
     </button>
   </div>
@@ -91,7 +91,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 50px;
+    height: 55px;
     margin-bottom: 20px;
   }
 
@@ -194,14 +194,14 @@
     color: white;
   }
 
-  .side-chat .side-chat-btn .side-chat-btns {
+  .side-chat .side-chat-btn .side-chat-edit {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
   }
 
-  .side-chat .side-chat-btn .side-chat-btns button {
+  .side-chat .side-chat-btn .side-chat-edit button {
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -210,7 +210,7 @@
     align-items: center;
   }
 
-  .side-chat .side-chat-btn .side-chat-btns button span i {
+  .side-chat .side-chat-btn .side-chat-edit button i {
     display: block;
     width: 15px;
     height: 15px;
@@ -225,9 +225,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-top: 10px;
     width: 100%;
+    height: 20%;
   }
 
   .side-profile {
@@ -254,8 +255,8 @@
 
   .side-profile-img {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: auto;
     overflow: hidden;
     margin-right: 10px;
     border-radius: 5px;
@@ -272,13 +273,13 @@
     color: white;
   }
 
-  .side-profile-opt span {
+  .side-profile-opt {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .side-profile-opt span i {
+  .side-profile-opt i {
     width: 15px;
     height: 15px;
     border-radius: 10px;
