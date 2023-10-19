@@ -4,9 +4,6 @@
 
 <div class="chat-block main-width">
   <ChatBlock />
-  <ChatBlock />
-  <ChatBlock />
-  <ChatBlock />
 </div>
 
 <style>

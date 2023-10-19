@@ -7,7 +7,6 @@
 </svelte:head>
 
 <div class="main main-width" />
-<a href="/12/12">Go</a>
 
 <style>
   .main-width {

@@ -1,31 +1,14 @@
 <script lang="ts">
+  export let isUser = false;
 </script>
 
-<!-- 나중에 전달될 prop으로 ai block 인지 user block인지 판별 후 bg 색상 변경 -->
-<div class="chat-block user-block-bg">
+<div class="chat-block {isUser ? 'user-block-bg' : 'ai-block-bg'}">
   <div class="chat-main">
     <div class="chat-profile">
       <!-- ai blcok 인지 user block인지 판별 후 이미지 지정 -->
       <img alt="" />
     </div>
-    <div class="chat-content">
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Contentt Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content Content Content Content Content Content Content Content
-      Content Content C
-    </div>
+    <div class="chat-content" />
   </div>
   <!-- Btn flex 나중에 구현 -->
   <div>Btn</div>
