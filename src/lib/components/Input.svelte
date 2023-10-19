@@ -1,25 +1,12 @@
 <script lang="ts">
-  import { goto } from "$app/navigation";
-
+  import { InsertBeforeSplitContent } from "$lib/utils/InsertBeforeSplitContent";
   export let value = "";
-  // function InsertBeforeSplitContent(content: string[]) {
-  //   const ChatElement = document.createElement("div");
-  //   ParentNode.insertAdjacentElement("afterend", ChatElement);
-  //   for (let i = 0; i < content.length; i++) {
-  //     // setTimeout
-  //     setTimeout(() => {
-  //       ChatElement.innerText += content[i] + String.fromCharCode(160);
-  //     }, Math.min(20, Math.ceil(content.length / 3)) * i);
-  //     // clearTimeout
-  //     clearTimeout(
-  //       setTimeout(() => {
-  //         ChatElement.innerText += content[i] + String.fromCharCode(160);
-  //       }, Math.min(20, Math.ceil(content.length / 3)) * i)
-  //     );
-  //   }
-  // }
+  export let ChatNode: HTMLDivElement;
+  let test = false;
   function onSubmit() {
-    goto("/1");
+    InsertBeforeSplitContent(value.split(" "), test, ChatNode);
+    test = !test;
+    value = "";
   }
 </script>
 

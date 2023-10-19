@@ -31,3 +31,48 @@ a:hover {
   height: 100vh;
   overflow-y: auto;
 }
+
+/* ChatBlock CSS  */
+
+.chat-block {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: auto;
+  padding: 20px 40px;
+}
+
+.chat-main {
+  width: 100%;
+  display: flex;
+}
+
+.chat-profile {
+  min-width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+
+.chat-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chat-content {
+  width: 90%;
+  padding: 0 40px;
+  font-size: 15px;
+  color: white;
+  word-break: break-all;
+}
+
+/*  */
+
+.user-block-bg {
+  background-color: transparent;
+}
+
+.ai-block-bg {
+  background-color: #444654;
+}
