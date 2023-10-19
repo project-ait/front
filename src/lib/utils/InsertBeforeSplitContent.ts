@@ -7,10 +7,12 @@ const ChatBlock = `<div class="chat-main">
     <div>Btn</div>`;
 
 export function InsertBeforeSplitContent(
-  content: string[],
+  content: string,
   isUser: boolean,
   ParentNode: Element
 ) {
+  const splitedContent = content.split(" ");
+
   // ParentNode에 삽일할 엘리먼트 생성 후 class 추가
   const NewElement = document.createElement("div");
   NewElement.classList.add(`chat-block`);
@@ -26,16 +28,22 @@ export function InsertBeforeSplitContent(
   const ContentElement = NewElement.querySelector("#content") as HTMLDivElement;
 
   // split된 문자들을 몇초 간격으로 선택한 엘리먼트에 추가
-  for (let i = 0; i < content.length; i++) {
-    // setTimeout
-    setTimeout(() => {
-      ContentElement.innerText += content[i] + String.fromCharCode(160);
-    }, Math.min(20, Math.ceil(content.length / 3)) * i);
-    // clearTimeout
-    clearTimeout(
+  if (isUser) {
+    ContentElement.innerText = content;
+  } else {
+    for (let i = 0; i < splitedContent.length; i++) {
+      // setTimeout
       setTimeout(() => {
-        ContentElement.innerText += content[i] + String.fromCharCode(160);
-      }, Math.min(20, Math.ceil(content.length / 3)) * i)
-    );
+        ContentElement.innerText +=
+          splitedContent[i] + String.fromCharCode(160);
+      }, Math.min(20, Math.ceil(splitedContent.length / 3)) * i);
+      // clearTimeout
+      clearTimeout(
+        setTimeout(() => {
+          ContentElement.innerText +=
+            splitedContent[i] + String.fromCharCode(160);
+        }, Math.min(20, Math.ceil(splitedContent.length / 3)) * i)
+      );
+    }
   }
 }

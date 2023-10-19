@@ -1,7 +1,7 @@
 <script lang="ts">
   import Input from "$lib/components/Input.svelte";
-  let value = "";
   let ChatNode: HTMLDivElement;
+  let value = "";
 </script>
 
 <div bind:this={ChatNode} class="chat-blocks main-width" />
