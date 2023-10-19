@@ -6,7 +6,10 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div>Hello World!</div>
+<div class="main main-width" />
 
 <style>
+  .main-width {
+    background-color: #343540;
+  }
 </style>
