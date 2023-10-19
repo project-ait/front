@@ -6,13 +6,11 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div class="main" />
+<div class="main main-width" />
+<a href="/12/12">Go</a>
 
 <style>
-  .main {
-    display: flex;
-    width: calc(100% - 200px);
-    height: 100vh;
-    border: 1px solid black;
+  .main-width {
+    background-color: #343540;
   }
 </style>
