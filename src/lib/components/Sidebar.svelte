@@ -15,7 +15,7 @@
     <ul class="side-chats">
       {#each new Array(15).fill("") as arr, i}
         <li class="side-chat">
-          <a href="/1" class="side-chat-btn">
+          <a href="/test" class="side-chat-btn">
             <div class="side-chat-title">
               <i />
               <span>Chat Btn</span>
