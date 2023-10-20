@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Input from "$lib/components/Input.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
   import "./styles.css";
 </script>
@@ -7,6 +8,7 @@
   <!-- Header 필요시 Header Component 추가 -->
   <main>
     <Sidebar />
+    <Input />
     <slot />
   </main>
   <!-- Footer 필요시 Footer Component 추가 -->

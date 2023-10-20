@@ -1,11 +1,17 @@
 <script lang="ts">
-  import Input from "$lib/components/Input.svelte";
+  import { NodeState } from "$lib/store/NodeState";
+  import { onDestroy, onMount } from "svelte";
+
   let ChatNode: HTMLDivElement;
-  let value = "";
+  onMount(() => {
+    $NodeState = ChatNode;
+  });
+  onDestroy(() => {
+    $NodeState = null;
+  });
 </script>
 
 <div bind:this={ChatNode} class="chat-blocks main-width" />
-<Input bind:value bind:ChatNode />
 
 <style>
   .chat-blocks {
@@ -15,6 +21,4 @@
     background-color: #343540;
     padding: 100px 0;
   }
-
-  /*  */
 </style>
