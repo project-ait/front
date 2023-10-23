@@ -77,3 +77,20 @@ a:hover {
 .ai-block-bg {
   background-color: #444654;
 }
+
+/* Taptip */
+
+.taptip {
+  background-color: #42414F;
+  border:0px;
+  border-radius: 5px;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 800px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+}
