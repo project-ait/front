@@ -18,7 +18,7 @@ ij_javascript_spaces_within_object_literal_braces = true
 ij_typescript_force_semicolon_style = false
 ij_javascript_force_semicolon_style = false
 
-[*.{html,svelte,css}]
+[*.{html,svelte,css,json}]
 indent_size = 2
 
 [*.{html,svelte}]
