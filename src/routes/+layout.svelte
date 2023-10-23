@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { NodeState } from "$lib/stores/NodeState";
   import Input from "$lib/components/Input.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
   import "./styles.css";
@@ -8,7 +9,9 @@
   <!-- Header 필요시 Header Component 추가 -->
   <main>
     <Sidebar />
-    <Input />
+    {#if $NodeState}
+      <Input />
+    {/if}
     <slot />
   </main>
   <!-- Footer 필요시 Footer Component 추가 -->

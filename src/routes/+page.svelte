@@ -6,6 +6,7 @@
   <meta name="description" content="Svelte demo app" />
 </svelte:head>
 
+<!-- About 페이지 또는 채팅 공간 만드는 페이지 -->
 <div class="main main-width" />
 
 <style>

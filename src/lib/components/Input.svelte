@@ -12,7 +12,22 @@
   let SubmitNode: HTMLButtonElement;
   let editor: Readable<Editor>;
 
-  const DisableEnter = Extension.create({
+  function onSubmit() {
+    if ($NodeState) {
+      InsertBeforeSplitContent(
+        $editor.getText({ blockSeparator: "\n" }),
+        test,
+        $NodeState
+      );
+      console.log($editor.getHTML());
+      $editor.commands.setContent(``);
+    } else {
+      goto("/1");
+    }
+    test = !test;
+  }
+
+  const CustomEnter = Extension.create({
     addKeyboardShortcuts() {
       return {
         Enter: () => {
@@ -22,22 +37,10 @@
       };
     },
   });
-  function onSubmit() {
-    if ($NodeState) {
-      InsertBeforeSplitContent(
-        $editor.getText({ blockSeparator: "\n" }),
-        test,
-        $NodeState
-      );
-      $editor.commands.setContent(``);
-    } else {
-      goto("/1");
-    }
-    test = !test;
-  }
+
   onMount(() => {
     editor = createEditor({
-      extensions: [StarterKit, DisableEnter],
+      extensions: [StarterKit, CustomEnter],
       content: `Hello World`,
     });
   });

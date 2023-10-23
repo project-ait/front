@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NodeState } from "$lib/store/NodeState";
+  import { NodeState } from "$lib/stores/NodeState";
   import { onDestroy, onMount } from "svelte";
 
   let ChatNode: HTMLDivElement;

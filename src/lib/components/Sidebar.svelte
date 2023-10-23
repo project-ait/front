@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Icon from "@iconify/svelte";
 </script>
 
 <div class="side-container">
@@ -7,27 +8,29 @@
   <div class="side-btns">
     <div class="side-top-btns">
       <a href="/" class="side-new">
-        <i />
+        <i><Icon icon="ph:chat-bold" /></i>
         <span>New Chat</span>
       </a>
-      <a href="/" class="side-close"><i /></a>
+      <button class="side-close">
+        <i><Icon icon="mdi:close-outline" /></i>
+      </button>
     </div>
     <ul class="side-chats">
       {#each new Array(15).fill("") as arr, i}
         <li class="side-chat">
           <a href="/test" class="side-chat-btn">
             <div class="side-chat-title">
-              <i />
+              <i><Icon icon="ic:outline-chat" /></i>
               <span>Chat Btn</span>
             </div>
           </a>
           <div class="side-chat-edit">
-            <a href="/">
-              <i />
-            </a>
-            <a href="/">
-              <i />
-            </a>
+            <button>
+              <i><Icon icon="material-symbols:delete-outline" /></i>
+            </button>
+            <button>
+              <i><Icon icon="tabler:edit" /></i>
+            </button>
           </div>
         </li>
       {/each}
@@ -35,33 +38,41 @@
   </div>
   <!-- / -->
   <div class="side-auth">
-    <a href="/login" class="side-profile">
-      <div class="side-profile-info">
+    <div class="side-profile">
+      <a href="/login" class="side-profile-info">
         <span class="side-profile-img">
           <img alt="" />
         </span>
         <span class="side-profile-name">Profile</span>
-      </div>
-      <div class="side-profile-opt">
-        <i />
-      </div>
-    </a>
-    <a href="/login" class="side-profile">
-      <div class="side-profile-info">
+      </a>
+      <button class="side-profile-opt">
+        <i><Icon icon="iwwa:option-horizontal" /></i>
+      </button>
+    </div>
+    <div class="side-profile">
+      <a href="/login" class="side-profile-info">
         <span class="side-profile-img">
           <img alt="" />
         </span>
         <span class="side-profile-name">Profile</span>
-      </div>
-      <div class="side-profile-opt">
-        <i />
-      </div>
-    </a>
+      </a>
+      <button class="side-profile-opt">
+        <i><Icon icon="iwwa:option-horizontal" /></i>
+      </button>
+    </div>
   </div>
   <!--  -->
 </div>
 
 <style>
+  .side-container i {
+    color: white;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .side-container {
     position: fixed;
     top: 0;
@@ -105,18 +116,10 @@
     cursor: pointer;
   }
 
-  .side-new i {
-    display: block;
-    margin-right: 10px;
-    width: 15px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: white;
-  }
-
   .side-new span {
     font-size: 14px;
     color: white;
+    margin-left: 10px;
   }
 
   .side-close {
@@ -131,13 +134,6 @@
     cursor: pointer;
   }
 
-  .side-close i {
-    width: 15px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: white;
-  }
-
   /*  */
 
   .side-chats {
@@ -146,8 +142,10 @@
     align-items: center;
     width: 100%;
     height: 500px;
+    border-top: 1px solid #474749;
     border-bottom: 1px solid #474749;
     overflow-y: auto;
+    padding-top: 10px;
   }
 
   .side-chat {
@@ -178,18 +176,10 @@
     align-items: center;
   }
 
-  .side-chat .side-chat-btn .side-chat-title i {
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: white;
-    margin-right: 10px;
-  }
-
   .side-chat .side-chat-btn .side-chat-title span {
     font-size: 16px;
     color: white;
+    margin-left: 10px;
   }
 
   .side-chat .side-chat-edit {
@@ -203,7 +193,7 @@
     align-items: center;
   }
 
-  .side-chat .side-chat-edit a {
+  .side-chat .side-chat-edit button {
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -211,14 +201,6 @@
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-  }
-
-  .side-chat .side-chat-edit a i {
-    display: block;
-    width: 15px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: white;
   }
 
   /*  */
@@ -242,8 +224,8 @@
     padding: 10px;
     background-color: transparent;
     border: none;
-    overflow: hidden;
     cursor: pointer;
+    position: relative;
   }
 
   .side-profile:hover {
@@ -253,6 +235,8 @@
   .side-profile-info {
     display: flex;
     align-items: center;
+    width: 100%;
+    height: 100%;
   }
 
   .side-profile-img {
@@ -275,15 +259,13 @@
   }
 
   .side-profile-opt {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .side-profile-opt i {
-    width: 15px;
-    height: 15px;
-    border-radius: 10px;
-    background-color: white;
+    position: absolute;
+    z-index: 999;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    top: 50%;
+    right: 5%;
+    transform: translate(0, -50%);
   }
 </style>

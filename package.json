@@ -25,6 +25,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@iconify/svelte": "^3.1.4",
     "@tiptap/core": "^2.1.12",
     "@tiptap/pm": "^2.1.12",
     "@tiptap/starter-kit": "^2.1.12",
