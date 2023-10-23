@@ -1,14 +1,23 @@
 <script lang="ts">
+  import { goto } from "$app/navigation";
+
+  function onClick() {
+    goto("/");
+  }
 </script>
 
-<form class="login-form main-width">
+<form class="login-form">
   <div class="input-container">
-    <input type="email" placeholder="Email" />
-    <input type="password" placeholder="Password" />
+    <input class="dark:bg-dark bg-lightdark" type="email" placeholder="Email" />
+    <input
+      class="dark:bg-dark bg-lightdark"
+      type="password"
+      placeholder="Password"
+    />
   </div>
   <div class="btns-container">
     <button type="submit">Enter</button>
-    <button type="button">Close</button>
+    <button on:click={onClick} type="button">Close</button>
   </div>
 </form>
 
@@ -18,14 +27,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #343540;
+    height: 100%;
+    width: 100%;
   }
+
   .input-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 10px;
   }
+
   .input-container input {
     width: 300px;
     height: 40px;
@@ -36,11 +48,13 @@
     border-radius: 10px;
     margin-bottom: 10px;
   }
+
   .btns-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
   .btns-container button {
     display: flex;
     justify-content: center;
@@ -51,6 +65,7 @@
     border-radius: 10px;
     cursor: pointer;
   }
+
   .btns-container button:first-child {
     margin-right: 10px;
   }

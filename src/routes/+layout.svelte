@@ -1,26 +1,37 @@
 <script lang="ts">
+  import "./styles.css";
   import { NodeState } from "$lib/stores/NodeState";
+  import { SettingState } from "$lib/stores/SettingState";
   import Input from "$lib/components/Input.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
-  import "./styles.css";
   import Settings from "$lib/components/Settings.svelte";
-  import { SettingState } from "$lib/stores/SettingState";
+  import { onMount } from "svelte";
+  import { DarkMode } from "$lib/utils/DarkMode";
+
+  onMount(() => {
+    const isDark = JSON.parse(localStorage.getItem("isDark") || "false");
+    DarkMode(isDark);
+  });
 </script>
 
-<div class="app">
-  <!-- Header 필요시 Header Component 추가 -->
-  <main>
-    <Sidebar />
-    {#if $SettingState}
-      <Settings />
-    {/if}
-    {#if $NodeState}
-      <Input />
-    {/if}
-    <slot />
-  </main>
-  <!-- Footer 필요시 Footer Component 추가 -->
-</div>
+{#if typeof window !== "undefined"}
+  <div class="app">
+    <!-- Header 필요시 Header Component 추가 -->
+    <main>
+      <Sidebar />
+      {#if $SettingState.isOpen}
+        <Settings />
+      {/if}
+      {#if $NodeState}
+        <Input />
+      {/if}
+      <div class="main-width dark:bg-lightdark">
+        <slot />
+      </div>
+    </main>
+    <!-- Footer 필요시 Footer Component 추가 -->
+  </div>
+{/if}
 
 <style>
   main {

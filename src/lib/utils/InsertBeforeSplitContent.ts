@@ -4,15 +4,15 @@ const ChatBlock = `<div class="chat-main">
       </div>
       <div id="content" class="chat-content"></div>
     </div>
-    <div>Btn</div>`;
+    </div>`;
 
 export function InsertBeforeSplitContent(
   content: string,
   isUser: boolean,
   ParentNode: Element
 ) {
-  const splitedContent = content.split(" ");
-
+  const replaceContent = content.replaceAll(" ", String.fromCharCode(160));
+  const splitedContent = replaceContent.split(String.fromCharCode(160));
   // ParentNode에 삽일할 엘리먼트 생성 후 class 추가
   const NewElement = document.createElement("div");
   NewElement.classList.add(`chat-block`);

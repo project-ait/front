@@ -6,13 +6,14 @@
   box-sizing: border-box;
   list-style: none;
   font-weight: bold;
+  transition: background-color 0.3s linear;
 }
 
 ::-webkit-scrollbar {
   width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: lightgray;
+  background-color: gray;
   border-radius: 10px;
 }
 
@@ -29,10 +30,8 @@ a:hover {
 }
 
 .main-width {
-  margin-left: 280px;
-  width: calc(100% - 200px);
+  width: calc(100% - 280px);
   height: 100vh;
-  overflow-y: auto;
 }
 
 /* ChatBlock CSS  */
@@ -67,7 +66,6 @@ a:hover {
   padding: 0 40px;
   font-size: 15px;
   letter-spacing: 0.1em;
-  color: white;
   word-break: break-all;
 }
 
@@ -89,9 +87,18 @@ a:hover {
   outline: none;
   border-radius: 5px;
   width: 800px;
-  height: 50px;
-  font-size: 20px;
+  height: auto;
+  max-height: 20vh;
+  font-size: 15px;
   color: white;
-  padding: 10px;
-  margin: 10px;
+  padding: 15px 20px;
+  overflow-y: auto;
+}
+
+.tiptap p.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
 }
