@@ -3,12 +3,17 @@
   import Input from "$lib/components/Input.svelte";
   import Sidebar from "$lib/components/Sidebar.svelte";
   import "./styles.css";
+  import Settings from "$lib/components/Settings.svelte";
+  import { SettingState } from "$lib/stores/SettingState";
 </script>
 
 <div class="app">
   <!-- Header 필요시 Header Component 추가 -->
   <main>
     <Sidebar />
+    {#if $SettingState}
+      <Settings />
+    {/if}
     {#if $NodeState}
       <Input />
     {/if}

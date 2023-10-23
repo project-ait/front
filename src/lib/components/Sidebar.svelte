@@ -1,5 +1,9 @@
 <script lang="ts">
+  import { SettingState } from "$lib/stores/SettingState";
   import Icon from "@iconify/svelte";
+  function onSetting() {
+    $SettingState = true;
+  }
 </script>
 
 <div class="side-container">
@@ -56,7 +60,7 @@
         </span>
         <span class="side-profile-name">Profile</span>
       </a>
-      <button class="side-profile-opt">
+      <button on:click={onSetting} class="side-profile-opt">
         <i><Icon icon="iwwa:option-horizontal" /></i>
       </button>
     </div>

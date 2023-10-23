@@ -19,7 +19,6 @@
         test,
         $NodeState
       );
-      console.log($editor.getHTML());
       $editor.commands.setContent(``);
     } else {
       goto("/1");
@@ -53,6 +52,12 @@
 
 <style>
   .input-form {
-    position: fixed;
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+    transform: translate(50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
