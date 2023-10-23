@@ -11,14 +11,16 @@
   });
 </script>
 
-<div bind:this={ChatNode} class="chat-blocks main-width" />
+<div bind:this={ChatNode} class="chat-blocks" />
 
 <style>
   .chat-blocks {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #343540;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
     padding: 100px 0;
   }
 </style>

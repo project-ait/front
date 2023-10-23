@@ -1,17 +1,17 @@
 <script lang="ts">
   import { SettingState } from "$lib/stores/SettingState";
+  import { DarkMode } from "$lib/utils/DarkMode";
 
   let isDark = false;
+
+  $: isDark = JSON.parse(localStorage.getItem("isDark") || "false");
+
   function onChange() {
-    const body = document.body;
-    if (isDark) {
-      body.classList.add("dark");
-    } else {
-      body.classList.remove("dark");
-    }
+    DarkMode(isDark);
+    localStorage.setItem("isDark", String(isDark));
   }
   function onClose() {
-    $SettingState = false;
+    $SettingState.isOpen = false;
   }
 </script>
 
@@ -23,20 +23,21 @@
       <span />
     </label>
   </li>
-  <button on:click={onClose}>Close</button>
+  <button class="settings-close" on:click={onClose}>Close</button>
 </ul>
 
 <style>
   .settings-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 20px;
     width: 500px;
+    min-height: 300px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid white;
     border-radius: 10px;
     background-color: #202123;
   }
@@ -44,6 +45,8 @@
   .settings-container li {
     display: flex;
     align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
   }
 
   .settings-container li h1 {
@@ -95,5 +98,17 @@
   .checkbox-label input:checked ~ span::before {
     transform: translate(130%, -50%) rotateZ(200deg);
     box-shadow: inset 10px 0px 0px 0px lightgray;
+  }
+
+  .settings-close {
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .settings-close:hover {
+    background-color: lightgray;
   }
 </style>

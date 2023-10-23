@@ -1,3 +1,9 @@
 import { writable } from "svelte/store";
 
-export const SettingState = writable<boolean>(false);
+interface SettingProp {
+  isOpen: boolean;
+}
+
+export const SettingState = writable<SettingProp>({
+  isOpen: false,
+});

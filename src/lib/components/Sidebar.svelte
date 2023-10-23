@@ -1,13 +1,13 @@
 <script lang="ts">
   import { SettingState } from "$lib/stores/SettingState";
   import Icon from "@iconify/svelte";
+
   function onSetting() {
-    $SettingState = true;
+    $SettingState.isOpen = true;
   }
 </script>
 
-<div class="side-container">
-  <!-- 나중에 <i />에 icon 추가 -->
+<div class="side-container dark:bg-dark bg-lightdark">
   <!--  -->
   <div class="side-btns">
     <div class="side-top-btns">
@@ -20,7 +20,7 @@
       </button>
     </div>
     <ul class="side-chats">
-      {#each new Array(15).fill("") as arr, i}
+      {#each new Array(1).fill("") as arr, i}
         <li class="side-chat">
           <a href="/test" class="side-chat-btn">
             <div class="side-chat-title">
@@ -40,7 +40,7 @@
       {/each}
     </ul>
   </div>
-  <!-- / -->
+  <!--  -->
   <div class="side-auth">
     <div class="side-profile">
       <a href="/login" class="side-profile-info">
@@ -49,7 +49,7 @@
         </span>
         <span class="side-profile-name">Profile</span>
       </a>
-      <button class="side-profile-opt">
+      <button on:click={onSetting} class="side-profile-opt">
         <i><Icon icon="iwwa:option-horizontal" /></i>
       </button>
     </div>
@@ -78,15 +78,11 @@
   }
 
   .side-container {
-    position: fixed;
-    top: 0;
-    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 280px;
     height: 100vh;
-    background-color: #202123;
     padding: 8px 12px;
   }
 
@@ -272,4 +268,6 @@
     right: 5%;
     transform: translate(0, -50%);
   }
+
+  /* Media */
 </style>

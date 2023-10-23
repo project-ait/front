@@ -7,10 +7,11 @@
 </svelte:head>
 
 <!-- About 페이지 또는 채팅 공간 만드는 페이지 -->
-<div class="main main-width" />
+<div class="main" />
 
 <style>
-  .main-width {
-    background-color: #343540;
+  .main {
+    width: 100%;
+    height: 100%;
   }
 </style>
