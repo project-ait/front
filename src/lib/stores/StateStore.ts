@@ -20,11 +20,13 @@ export interface StateStore {
     showSettings: boolean
     appearance: Appearance
     pageType: PageType
+    input: string
 }
 
 
 export const stateStore = writable<StateStore>({
     showSettings: false,
     appearance: Appearance.Dark,
-    pageType: PageType.Chat
+    pageType: PageType.Chat,
+    input: "" // it must be updating when send the message for avoid the bugs (and trash request)
 })

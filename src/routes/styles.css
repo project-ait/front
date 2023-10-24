@@ -109,3 +109,9 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
+
+@font-face {
+  font-family: "Cabin";
+  /*noinspection CssUnknownTarget*/
+  src: url("/fonts/Cabin-Regular.ttf"); /* In ./static/fonts */
+}

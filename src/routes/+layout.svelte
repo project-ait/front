@@ -1,6 +1,5 @@
 <script lang="ts">
   import Sidebar from "$lib/components/NavSidebar.svelte"
-  import ChatInput from "$lib/components/share/ChatInput.svelte"
   import Settings from "$lib/components/sidebar/settings/Settings.svelte"
   import { DarkMode } from "$lib/utils/DarkMode"
   import { onMount } from "svelte"
@@ -18,7 +17,6 @@
     <main>
       <Sidebar />
       <Settings />
-      <ChatInput />
       <div class="main-width dark:bg-lightdark">
         <slot />
       </div>
