@@ -1,30 +1,34 @@
 <script lang="ts">
-  import { SettingState } from "$lib/stores/SettingState";
-  import { DarkMode } from "$lib/utils/DarkMode";
+  import { stateStore } from "$lib/stores/StateStore"
+  import { DarkMode } from "$lib/utils/DarkMode"
 
-  let isDark = false;
+  let isDark = false
 
-  $: isDark = JSON.parse(localStorage.getItem("isDark") || "false");
+  $: isDark = JSON.parse(localStorage.getItem("isDark") || "false")
+  $: isSettingsShow = <boolean>$stateStore.showSettings
 
-  function onChange() {
-    DarkMode(isDark);
-    localStorage.setItem("isDark", String(isDark));
+  function applyDark() {
+    DarkMode(isDark)
+    localStorage.setItem("isDark", String(isDark))
   }
-  function onClose() {
-    $SettingState.isOpen = false;
+
+  function hideSettings() {
+    $stateStore.showSettings = false
   }
 </script>
 
-<ul class="settings-container">
-  <li>
-    <h1>Theme</h1>
-    <label class="checkbox-label">
-      <input type="checkbox" bind:checked={isDark} on:change={onChange} />
-      <span />
-    </label>
-  </li>
-  <button class="settings-close" on:click={onClose}>Close</button>
-</ul>
+{#if isSettingsShow}
+  <ul class="settings-container">
+    <li>
+      <h1>Theme</h1>
+      <label class="checkbox-label">
+        <input type="checkbox" bind:checked={isDark} on:change={applyDark} />
+        <span />
+      </label>
+    </li>
+    <button class="settings-close" on:click={hideSettings}>Close</button>
+  </ul>
+{/if}
 
 <style>
   .settings-container {
@@ -97,7 +101,7 @@
 
   .checkbox-label input:checked ~ span::before {
     transform: translate(130%, -50%) rotateZ(200deg);
-    box-shadow: inset 10px 0px 0px 0px lightgray;
+    box-shadow: inset 10px 0 0 0 lightgray;
   }
 
   .settings-close {

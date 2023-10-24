@@ -8,11 +8,11 @@
 
 <form class="login-form">
   <div class="input-container">
-    <input class="dark:bg-dark bg-lightdark" type="email" placeholder="Email" />
+    <input class="dark:bg-dark bg-lightdark" placeholder="Email" type="email" />
     <input
       class="dark:bg-dark bg-lightdark"
-      type="password"
       placeholder="Password"
+      type="password"
     />
   </div>
   <div class="btns-container">

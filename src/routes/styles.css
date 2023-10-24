@@ -6,14 +6,15 @@
   box-sizing: border-box;
   list-style: none;
   font-weight: bold;
-  transition: background-color 0.3s linear;
+  transition: background-color 0.07s linear;
 }
 
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: gray;
+  background-color: rgb(128, 128, 128);
   border-radius: 10px;
 }
 
@@ -79,9 +80,9 @@ a:hover {
   background-color: #444654;
 }
 
-/* Tiptap */
+/* Tool Tip */
 
-.tiptap {
+.tooltip {
   background-color: #42414f;
   border: none;
   outline: none;
@@ -95,10 +96,16 @@ a:hover {
   overflow-y: auto;
 }
 
-.tiptap p.is-editor-empty:first-child::before {
+.tooltip p.is-editor-empty:first-child::before {
   color: #adb5bd;
   content: attr(data-placeholder);
   float: left;
   height: 0;
   pointer-events: none;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
