@@ -2,6 +2,7 @@
   import Profile from "$lib/components/sidebar/Profile.svelte"
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
   import Icon from "@iconify/svelte"
+  import { PageType } from "$lib/stores/StateStore"
 </script>
 
 <div class="side-container dark:bg-dark bg-lightdark">
@@ -21,9 +22,18 @@
       </button>
     </div>
     <ul class="side-buttons">
+      <!-- Buttons Here -->
       <SideButton
         iconSrc="/chat.svg"
+        href="/chat"
         name="Chat with AI"
+        category={PageType.Chat}
+      />
+      <SideButton
+        iconSrc="/document.svg"
+        name="Docs Organizer"
+        category={PageType.Docs}
+        href="/docs"
       />
     </ul>
   </div>

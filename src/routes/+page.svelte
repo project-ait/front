@@ -1,4 +1,10 @@
 <script lang="ts">
+  import { onMount } from "svelte"
+
+  onMount(() => {
+    // TODO if not settings about first page
+    location.href = "/chat"
+  })
 </script>
 
 <svelte:head>

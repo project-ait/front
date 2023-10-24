@@ -5,20 +5,26 @@ export enum Appearance {
     Dark
 }
 
+/**
+ * @desc First value is must be two over.
+ * If not, it will be confusing to use comparison operators.
+ * @example $stateStore.pageType === PageType.Chat
+ *          If chat is 0, it will be true even if it is not chat.
+ */
 export enum PageType {
-    Chat,
-    Document,
+    Chat = 2,
+    Docs,
 }
 
 export interface StateStore {
     showSettings: boolean
     appearance: Appearance
-    chatType: PageType
+    pageType: PageType
 }
 
 
 export const stateStore = writable<StateStore>({
     showSettings: false,
     appearance: Appearance.Dark,
-    chatType: PageType.Chat
+    pageType: PageType.Chat
 })
