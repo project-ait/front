@@ -4,6 +4,9 @@
 
   let text: string = ""
   const submitText = async () => {
+    if (text.length === 0) return
+    if (text.trim() === "") return
+
     $stateStore.input = text
     text = ""
     console.log("Text Submitted: ", text)
