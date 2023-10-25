@@ -25,51 +25,46 @@
            src={iconSrc}
            width="28px"
       />
-      <h5 class="text-2xl">{name}</h5>
+      <h4 class="side-title">{name}</h4>
     </div>
   </a>
 </li>
 
 <style>
+  .side-title {
+    flex: 1;
+    text-align: center;
+    font-weight: 500;
+    color: #f2f2f2;
+  }
+
   .side-btn {
     width: 100%;
-    margin-bottom: 10px;
-    position: relative;
-    color: white;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 4px;
   }
 
   .side-btn .side-btn-wrap {
-    width: 100%;
     height: 50px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-start;
     background-color: transparent;
-    border: none;
-    cursor: pointer;
     padding: 10px;
     border-radius: 10px;
   }
 
   .side-btn .side-btn-wrap:hover {
-    background-color: #474749;
+    background-color: rgba(77, 77, 77, 0.5);
   }
 
   .selected {
     background-color: #474749 !important;
   }
 
-  .side-btn .side-btn-wrap .side-btn-content {
+  .side-btn-content {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    width: 100%;
   }
 
-  .side-btn .side-btn-wrap .side-btn-content h5 {
-    text-align: center;
-    color: white;
-    margin-left: 12px;
-  }
 </style>
