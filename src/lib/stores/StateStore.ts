@@ -16,11 +16,27 @@ export enum PageType {
     Docs,
 }
 
+export enum Author {
+    Assistant,
+    User
+}
+
+export interface Message {
+    author: Author
+    message: string
+}
+
 export interface StateStore {
     showSettings: boolean
     appearance: Appearance
     pageType: PageType
+    waiting: boolean
     input: string
+    user?: {
+        profilePic: string
+        token: string
+    },
+    history: Array<Message>
 }
 
 
@@ -28,5 +44,10 @@ export const stateStore = writable<StateStore>({
     showSettings: false,
     appearance: Appearance.Dark,
     pageType: PageType.Chat,
-    input: "" // it must be updating when send the message for avoid the bugs (and trash request)
+    waiting: false, // is waiting AI response?
+    input: "", // it must be updating when send the message for avoid the bugs (and trash request),
+    history: [{
+        author: Author.Assistant,
+        message: "Hello! I'm your private assistant! How can I help you today? 🤖"
+    }]
 })

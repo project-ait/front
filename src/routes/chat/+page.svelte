@@ -1,20 +1,22 @@
-<script>
+<script lang="ts">
+  import AssistantMessage from "$lib/components/chat/messages/AssistantMessage.svelte"
+  import UserMessage from "$lib/components/chat/messages/UserMessage.svelte"
   import ChatInput from "$lib/components/share/ChatInput.svelte";
-  import Message from "$lib/components/chat/Message.svelte";
+  import type { Message } from "$lib/stores/StateStore"
+  import { Author, stateStore } from "$lib/stores/StateStore"
+
+  let history: Array<Message> = $stateStore.history
 </script>
 
 <div id="chat-page">
   <div id="chat-history">
-    <Message
-      message="I hate facebook ads"
-      bgColor="rgba(0, 0, 0, 0.1)"
-      profilePic="guest.png"
-    />
-    <Message
-      message="Facebook is no more exists lol multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines multiple lines"
-      bgColor="rgba(255, 255, 255, 0.05)"
-      profilePic="llama2.png"
-    />
+    {#each history as ctx}
+      {#if ctx.author === Author.Assistant}
+        <AssistantMessage message={ctx.message} />
+      {:else}
+        <UserMessage message={ctx.message} />
+      {/if}
+    {/each}
   </div>
   <ChatInput />
 </div>

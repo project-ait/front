@@ -7,8 +7,8 @@
 
 <div
   class="chat-bg"
-  style="background-color: {bgColor};
-">
+  style="background-color: {bgColor};"
+>
   <img
     class="chat-proc"
     src={profilePic}
