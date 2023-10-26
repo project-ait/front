@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { marked } from "marked"
+
   export let profilePic: string
   export let bgColor: string
   export let message: string
@@ -14,7 +16,9 @@
     src={profilePic}
     alt={"Profile"}
   />
-  <p class="chat-msg">{message}</p>
+  <div class="chat-msg">
+    {@html marked(message)}
+  </div>
 </div>
 
 <style>
@@ -42,9 +46,10 @@
     object-fit: cover;
   }
 
-  .chat-msg {
+  .chat-msg, .chat-msg :global(p) {
     font-weight: 400;
     line-height: 1.5rem;
     align-self: center;
   }
+
 </style>
