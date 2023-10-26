@@ -1,15 +1,23 @@
 <script lang="ts">
   import { stateStore } from "$lib/stores/StateStore"
   import Icon from "@iconify/svelte"
+  import { onMount } from "svelte"
 
   let text: string = ""
+
+  let textarea: HTMLTextAreaElement
+
+  onMount(() => {
+    textarea.focus()
+  })
+  
   const submitText = async () => {
     if (text.length === 0) return
     if (text.trim() === "") return
 
     $stateStore.input = text
+    console.log("Text Submitted:", text)
     text = ""
-    console.log("Text Submitted: ", text)
   }
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -26,6 +34,7 @@
     class="chat-input"
     placeholder="Type a message"
     bind:value={text}
+    bind:this={textarea}
     on:keydown={handleKeyDown}
   />
   <button
