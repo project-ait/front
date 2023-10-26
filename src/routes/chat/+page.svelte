@@ -4,9 +4,8 @@
   import ChatInput from "$lib/components/share/ChatInput.svelte";
   import { stateStore } from "$lib/stores/StateStore"
   import { Author } from "$lib/types/Chat"
-  import type { Message } from "$lib/types/Chat"
 
-  let history: Array<Message> = $stateStore.history
+  $: history = $stateStore.history
 </script>
 
 <div id="chat-page">
