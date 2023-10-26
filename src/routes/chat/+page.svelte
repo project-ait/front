@@ -2,8 +2,9 @@
   import AssistantMessage from "$lib/components/chat/messages/AssistantMessage.svelte"
   import UserMessage from "$lib/components/chat/messages/UserMessage.svelte"
   import ChatInput from "$lib/components/share/ChatInput.svelte";
-  import type { Message } from "$lib/stores/StateStore"
-  import { Author, stateStore } from "$lib/stores/StateStore"
+  import { stateStore } from "$lib/stores/StateStore"
+  import { Author } from "$lib/types/Chat"
+  import type { Message } from "$lib/types/Chat"
 
   let history: Array<Message> = $stateStore.history
 </script>

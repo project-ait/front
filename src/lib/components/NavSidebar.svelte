@@ -1,8 +1,8 @@
 <script lang="ts">
   import Profile from "$lib/components/sidebar/Profile.svelte"
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
+  import { PageType } from "$lib/types/Chat"
   import Icon from "@iconify/svelte"
-  import { PageType } from "$lib/stores/StateStore"
 </script>
 
 <div class="side-container dark:bg-dark bg-lightdark">
