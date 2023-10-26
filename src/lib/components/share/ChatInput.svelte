@@ -35,11 +35,11 @@
 
 <div class="chat-box">
   <textarea
-    class="chat-input"
-    placeholder="Type a message"
-    bind:value={text}
     bind:this={textarea}
+    bind:value={text}
+    class="chat-input"
     on:keydown={handleKeyDown}
+    placeholder="Type a message"
   />
   <button
     class="chat-send-btn"

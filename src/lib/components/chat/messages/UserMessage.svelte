@@ -5,7 +5,7 @@
 </script>
 
 <BaseMessage
-  profilePic="/guest.png"
-  message={message}
   bgColor="rgba(0, 0, 0, 0.1)"
+  message={message}
+  profilePic="/guest.png"
 />

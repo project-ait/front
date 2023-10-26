@@ -24,16 +24,16 @@
     <ul class="side-buttons">
       <!-- Buttons Here -->
       <SideButton
-        iconSrc="/chat.svg"
-        href="/chat"
-        name="Chat with AI"
         category={PageType.Chat}
+        href="/chat"
+        iconSrc="/chat.svg"
+        name="Chat with AI"
       />
       <SideButton
-        iconSrc="/document.svg"
-        name="Docs Organizer"
         category={PageType.Docs}
         href="/docs"
+        iconSrc="/document.svg"
+        name="Docs Organizer"
       />
     </ul>
   </div>

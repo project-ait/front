@@ -37,7 +37,7 @@
     <li>
       <h1>Model API</h1>
       <input id="url-input"
-        bind:value={$stateStore.url.model}
+             bind:value={$stateStore.url.model}
       />
     </li>
     <button class="settings-close" on:click={hideSettings}>Save and Close</button>

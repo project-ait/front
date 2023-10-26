@@ -12,9 +12,9 @@
   style="background-color: {bgColor};"
 >
   <img
+    alt={"Profile"}
     class="chat-proc"
     src={profilePic}
-    alt={"Profile"}
   />
   <div class="chat-msg">
     {@html marked(message)}

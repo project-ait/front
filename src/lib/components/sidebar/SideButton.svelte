@@ -15,9 +15,9 @@
 
 <li class="side-btn">
   <a class="side-btn-wrap side-btn"
-     on:click={applyCategory}
      class:selected={$stateStore.pageType === category}
      href={href}
+     on:click={applyCategory}
   >
     <div class="side-btn-content">
       <img alt="icon"
