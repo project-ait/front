@@ -45,8 +45,8 @@ devDependencies:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
   booga.js:
-    specifier: ^0.2.1
-    version: 0.2.1
+    specifier: ^0.3.0
+    version: 0.3.0
   marked:
     specifier: ^9.1.2
     version: 9.1.2
@@ -913,8 +913,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /booga.js@0.2.1:
-    resolution: {integrity: sha512-hrkblW7dWfaKbc+7mVXObkitHTyBEQj0ve12T5z3rmqNzylkJFMoZdDx0I7CNrPbiiPsb3s9oysPXC7UJ2RiaQ==}
+  /booga.js@0.3.0:
+    resolution: {integrity: sha512-hGj3cQ8jrTnq0jvlrCOgGA8SDBsE41kg8BNW3hSaotg/MdoimUIxOXg8RweOWGUUeQ7GIcAz1OKZ2lREGvRGxQ==}
     dependencies:
       axios: 1.5.1
     transitivePeerDependencies:
