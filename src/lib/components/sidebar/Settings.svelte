@@ -4,8 +4,9 @@
 
   let isDark = false
 
+
   $: isDark = JSON.parse(localStorage.getItem("isDark") || "false")
-  $: isSettingsShow = <boolean>$stateStore.showSettings
+  $: isSettingsShow = (<boolean>$stateStore.showSettings)
 
   function applyDark() {
     DarkMode(isDark)
@@ -26,11 +27,35 @@
         <span />
       </label>
     </li>
-    <button class="settings-close" on:click={hideSettings}>Close</button>
+    <li>
+      <h1>Server API</h1>
+      <input
+        id="url-input"
+        bind:value={$stateStore.url.server}
+      />
+    </li>
+    <li>
+      <h1>Model API</h1>
+      <input id="url-input"
+        bind:value={$stateStore.url.model}
+      />
+    </li>
+    <button class="settings-close" on:click={hideSettings}>Save and Close</button>
   </ul>
 {/if}
 
 <style>
+  #url-input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #343540;
+    color: white;
+    font-size: 16px;
+    margin: 5px;
+  }
+
   .settings-container {
     display: flex;
     flex-direction: column;
@@ -44,12 +69,16 @@
     transform: translate(-50%, -50%);
     border-radius: 10px;
     background-color: #202123;
+
+    animation: fade-in 0.2s ease-in-out;
   }
 
   .settings-container li {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 1px solid lightgray;
   }
 
@@ -113,6 +142,6 @@
   }
 
   .settings-close:hover {
-    background-color: lightgray;
+    background-color: rgba(255, 255, 255, 0.65);
   }
 </style>

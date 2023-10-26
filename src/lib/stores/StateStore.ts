@@ -1,5 +1,5 @@
-import { Author, PageType } from "$lib/types/Chat"
 import type { Message } from "$lib/types/Chat"
+import { Author, PageType } from "$lib/types/Chat"
 import { writable } from "svelte/store"
 
 export enum Appearance {
@@ -18,6 +18,10 @@ export interface StateStore {
         token: string
     },
     history: Array<Message>
+    url: {
+        server: string
+        model: string
+    }
 }
 
 
@@ -29,6 +33,10 @@ export const stateStore = writable<StateStore>({
     input: "", // it must be updating when send the message for avoid the bugs (and trash request),
     history: [{
         author: Author.Assistant,
-        message: "Hello! I'm your private assistant! How can I help you today? 🤖"
-    }]
+        message: "Hello! I'm your private assistant! How can I help you today? 🤖",
+    }],
+    url: {
+        server: "localhost:1777",
+        model: ""
+    }
 })
