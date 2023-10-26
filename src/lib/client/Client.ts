@@ -4,17 +4,16 @@ import { Client as LLM } from "booga.js"
 
 export class Client {
 
+    private _url: string = ""
+    public llm = new LLM({
+        uri: this._url
+    })
+
     constructor() {
         stateStore.subscribe((state) => {
             this._url = state.url.model
         })
     }
-
-    private _url: string = ""
-
-    public llm = new LLM({
-        uri: this._url
-    })
 
     public async appendHistory(author: Author, msg: string) {
         stateStore.update((state) => {
@@ -38,7 +37,7 @@ export class Client {
         await this.llm.chat(msg, {
             character: char
         }).then(res => {
-            this.appendHistory(Author.Assistant, res.output)
+            this.appendHistory(Author.Assistant, res)
         })
     }
 
