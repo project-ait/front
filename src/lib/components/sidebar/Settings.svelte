@@ -8,12 +8,12 @@
   $: isDark = JSON.parse(localStorage.getItem("isDark") || "false")
   $: isSettingsShow = (<boolean>$stateStore.showSettings)
 
-  function applyDark() {
+  const applyDark = () => {
     DarkMode(isDark)
     localStorage.setItem("isDark", String(isDark))
   }
 
-  function hideSettings() {
+  const hideSettings = () => {
     $stateStore.showSettings = false
   }
 </script>
@@ -36,8 +36,9 @@
     </li>
     <li>
       <h1>Model API</h1>
-      <input id="url-input"
-             bind:value={$stateStore.url.model}
+      <input
+        id="url-input"
+        bind:value={$stateStore.url.model}
       />
     </li>
     <button class="settings-close" on:click={hideSettings}>Save and Close</button>
