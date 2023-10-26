@@ -14,7 +14,7 @@ export class Client {
         })
     }
 
-    public llm = new LLM({uri: this._url})
+    public llm = new LLM({ uri: this._url })
 
     constructor() {}
 
@@ -36,6 +36,9 @@ export class Client {
 
     public async send(msg: string, char: string = "Commander") {
         this.updateUrl()
+
+        if (this._url === "")
+            return  // TODO do something for empty url
 
         await this.appendHistory(Author.User, msg)
 
