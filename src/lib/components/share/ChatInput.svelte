@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { client } from "$lib/client/Client"
   import { stateStore } from "$lib/stores/StateStore"
   import Icon from "@iconify/svelte"
   import { onMount } from "svelte"
@@ -10,14 +11,17 @@
   onMount(() => {
     textarea.focus()
   })
-  
+
   const submitText = async () => {
     if (text.length === 0) return
     if (text.trim() === "") return
 
-    $stateStore.input = text
     console.log("Text Submitted:", text)
+
+    $stateStore.input = text
     text = ""
+
+    await client.send($stateStore.input)
   }
 
   const handleKeyDown = (event: KeyboardEvent) => {
