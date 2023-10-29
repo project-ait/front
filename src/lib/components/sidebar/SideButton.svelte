@@ -3,7 +3,6 @@
   import { stateStore } from "$lib/stores/StateStore"
 
   export let iconSrc: string
-  export let name = "None"
   export let category: PageType | undefined
   export let href: string
 
@@ -25,7 +24,7 @@
            src={iconSrc}
            width="28px"
       />
-      <h4 class="side-title">{name}</h4>
+      <h4 class="side-title"><slot/></h4>
     </div>
   </a>
 </li>
@@ -64,7 +63,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 100%;
+    padding: 0 10px;
   }
 
 </style>

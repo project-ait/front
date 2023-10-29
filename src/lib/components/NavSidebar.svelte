@@ -3,21 +3,32 @@
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
   import { PageType } from "$lib/types/Chat"
   import Icon from "@iconify/svelte"
+
+  let isCollapsed = true
 </script>
 
-<div class="side-container dark:bg-dark bg-lightdark">
-  <!--  -->
+<div
+  class:collapsed={isCollapsed}
+  class="side-container dark:bg-dark bg-lightdark"
+>
   <div class="sidebar-content">
     <div class="sidebar-top-content">
-      <a class="side-new-chat" href="/">
+      {#if isCollapsed}
+        <!--Move to lending page after-->
+        <a class="side-new-chat" href="/chat">
+          <i>
+            <Icon icon="ph:chat-bold" />
+          </i>
+          <span>Project Title Here</span>
+        </a>
+      {/if}
+      <button class="side-toggle-coll" on:click={() => isCollapsed = !isCollapsed}>
         <i>
-          <Icon icon="ph:chat-bold" />
-        </i>
-        <span>New Chat</span>
-      </a>
-      <button class="side-close">
-        <i>
-          <Icon icon="mdi:close-outline" />
+          {#if isCollapsed}
+            <img alt="Collapse" src="/sidebar-collapse.svg" class="side-coll-btn" />
+          {:else}
+            <img alt="Expend" src="/sidebar-expand.svg" class="side-coll-btn" />
+          {/if}
         </i>
       </button>
     </div>
@@ -27,14 +38,20 @@
         category={PageType.Chat}
         href="/chat"
         iconSrc="/chat.svg"
-        name="Chat with AI"
-      />
+      >
+        {#if isCollapsed}
+          <p class="side-btn-title">Chat With AI</p>
+        {/if}
+      </SideButton>
       <SideButton
         category={PageType.Docs}
         href="/docs"
         iconSrc="/document.svg"
-        name="Docs Organizer"
-      />
+      >
+          {#if isCollapsed}
+            <p class="side-btn-title">Docs Organizer</p>
+          {/if}
+      </SideButton>
     </ul>
   </div>
   <!--  -->
@@ -45,6 +62,24 @@
 <!--  -->
 
 <style>
+  .side-btn-title {
+    flex: 1;
+    text-align: center;
+    font-weight: 500;
+    color: #f2f2f2;
+
+    /*animation-name: slideDown;*/
+    /*animation-duration: 0.5s;*/
+    /*animation-timing-function: ease-in-out;*/
+    /*animation-delay: 0.6s;*/
+  }
+
+  .side-coll-btn {
+    width: 32px;
+    height: 32px;
+    color: white;
+  }
+
   /* new chat, hide sidebar icons/text */
   .side-container i {
     color: white;
@@ -60,10 +95,16 @@
     align-items: center;
 
     /* TODO I think 320/340px is better for get the widgets */
-    width: 280px;
+    width: 80px;
 
     height: 100vh;
     padding: 8px 12px;
+
+    transition: width 0.2s ease-in-out;
+  }
+
+  .collapsed {
+    width: 280px;
   }
 
   .sidebar-content {
@@ -86,7 +127,8 @@
   .side-new-chat {
     display: flex;
     align-items: center;
-    width: 77%;
+    width: 320px;
+    margin-right: 4px;
     height: 100%;
     background-color: transparent;
     padding: 10px;
@@ -99,10 +141,21 @@
     font-size: 14px;
     color: white;
     margin-left: 10px;
+
+    animation: opacity 0.5s ease-in-out;
   }
 
-  .side-close {
-    width: 20%;
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .side-toggle-coll {
+    width: 88px;
     height: 100%;
     border-radius: 10px;
     border: 1px solid #474749;
