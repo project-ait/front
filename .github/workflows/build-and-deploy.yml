@@ -50,26 +50,30 @@ jobs:
         run: pnpm build
 
   deploy:
-    - name: Checkout
-      uses: actions/checkout@v3
+    name: "deploy"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Connect deploy key
-      uses: cloudtype-github-actions/connect@v1
-      with:
-        token: ${{ secrets.CLOUDTYPE_TOKEN }}
-        ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
 
-    - name: Deploy
-      uses: cloudtype-github-actions/deploy@v1
-      with:
-        token: ${{ secrets.CLOUDTYPE_TOKEN }}
-        project: pleahmacaka/ait
-        stage: main
-        yaml: |
-          name: front
-          app: node@18
-          options:
-            env:
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: pleahmacaka/ait
+          stage: main
+          yaml: |
+            name: front
+            app: node@18
+            options:
+              env:
               - name: NODE_ENV
                 value: production
             ports: "4173"
