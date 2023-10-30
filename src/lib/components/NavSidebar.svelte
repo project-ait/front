@@ -4,7 +4,12 @@
   import { PageType } from "$lib/types/Chat"
   import Icon from "@iconify/svelte"
 
-  let isCollapsed = true
+  let isCollapsed = (localStorage.getItem("isCollapsed") === "true")
+
+  function toggleCollapse() {
+    isCollapsed = !isCollapsed
+    localStorage.setItem("isCollapsed", isCollapsed.toString())
+  }
 </script>
 
 <div
@@ -22,7 +27,7 @@
           <span>Project Title Here</span>
         </a>
       {/if}
-      <button class="side-toggle-coll" on:click={() => isCollapsed = !isCollapsed}>
+      <button class="side-toggle-coll" on:click={toggleCollapse}>
         <i>
           {#if isCollapsed}
             <img alt="Collapse" src="/sidebar-collapse.svg" class="side-coll-btn" />
@@ -48,9 +53,9 @@
         href="/docs"
         iconSrc="/document.svg"
       >
-          {#if isCollapsed}
-            <p class="side-btn-title">Docs Organizer</p>
-          {/if}
+        {#if isCollapsed}
+          <p class="side-btn-title">Docs Organizer</p>
+        {/if}
       </SideButton>
     </ul>
   </div>
