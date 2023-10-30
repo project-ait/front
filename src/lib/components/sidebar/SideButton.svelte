@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { PageType } from "$lib/stores/StateStore"
   import { stateStore } from "$lib/stores/StateStore"
+  import type { PageType } from "$lib/types/Chat"
 
   export let iconSrc: string
   export let category: PageType | undefined
