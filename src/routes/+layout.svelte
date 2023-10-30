@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Sidebar from "$lib/components/NavSidebar.svelte"
+  import Sidebar from "$lib/components/Sidebar.svelte"
   import Settings from "$lib/components/sidebar/Settings.svelte"
   import { DarkMode } from "$lib/utils/DarkMode"
   import { onMount } from "svelte"
