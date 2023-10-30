@@ -2,10 +2,10 @@
   import { stateStore } from "$lib/stores/StateStore"
   import { DarkMode } from "$lib/utils/DarkMode"
 
-  let isDark = false
+  let isDark = true
   let closingAnimation = false
 
-  $: isDark = JSON.parse(localStorage.getItem("isDark") || "false")
+  $: isDark = JSON.parse(localStorage.getItem("isDark") || "true")
   $: isSettingsShow = (<boolean>$stateStore.showSettings)
 
   const applyDark = () => {

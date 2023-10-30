@@ -6,7 +6,7 @@
   import "./styles.css"
 
   onMount(() => {
-    const isDark = JSON.parse(localStorage.getItem("isDark") || "false")
+    const isDark = JSON.parse(localStorage.getItem("isDark") || "true")
     DarkMode(isDark)
   })
 </script>
