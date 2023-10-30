@@ -79,7 +79,7 @@ jobs:
             ports: "4173"
             build: npm run build
             start: npm run preview -- --host
-          context:
-            git:
-              url: git@github.com:${{ github.repository }}.git
-              ref: ${{ github.ref }}
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
