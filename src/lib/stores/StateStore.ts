@@ -21,7 +21,8 @@ export interface StateStore {
     url: {
         server: string
         model: string
-    }
+    },
+    debug: boolean
 }
 
 
@@ -38,5 +39,6 @@ export const stateStore = writable<StateStore>({
     url: {
         server: "localhost:1777",
         model: ""
-    }
+    },
+    debug: false
 })

@@ -3,7 +3,7 @@
   import { DarkMode } from "$lib/utils/DarkMode"
 
   let isDark = false
-
+  let closingAnimation = false
 
   $: isDark = JSON.parse(localStorage.getItem("isDark") || "false")
   $: isSettingsShow = (<boolean>$stateStore.showSettings)
@@ -14,15 +14,19 @@
   }
 
   const hideSettings = () => {
-    $stateStore.showSettings = false
+    closingAnimation = true
+    setTimeout(() => {
+      $stateStore.showSettings = false
+      closingAnimation = false
+    }, 130)
   }
 </script>
 
 {#if isSettingsShow}
-  <ul class="settings-container">
+  <ul class="settings-container" class:settings-container-hide={closingAnimation}>
     <li>
       <h1>Theme</h1>
-      <label class="checkbox-label">
+      <label class="settings-theme-btn">
         <input type="checkbox" bind:checked={isDark} on:change={applyDark} />
         <span />
       </label>
@@ -41,11 +45,63 @@
         bind:value={$stateStore.url.model}
       />
     </li>
+    <li>
+      <h1>Debug</h1>
+      <label class="settings-btn">
+        <input type="checkbox" bind:checked={$stateStore.debug} />
+        <span />
+      </label>
+    </li>
     <button class="settings-close" on:click={hideSettings}>Save and Close</button>
   </ul>
 {/if}
 
 <style>
+  .settings-btn {
+    background-color: #343540;
+    border-radius: 10px;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    right: 10%;
+  }
+
+  .settings-btn input {
+    display: none;
+  }
+
+  .settings-btn span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+    border-radius: 10px;
+    background-color: #ccdee3;
+    filter: drop-shadow(0 0 0.3em #ccdee3);
+  }
+
+  .settings-btn input:checked ~ span {
+    background-color: rgba(17, 255, 119, 0.5);
+  }
+
+  .settings-btn span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(20%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #343540;
+    transition: 0.7s;
+  }
+
+  .settings-btn input:checked ~ span::before {
+    transform: translate(130%, -50%);
+    box-shadow: inset 10px 0 0 0 lightgray;
+  }
+
   #url-input {
     width: 300px;
     padding: 10px;
@@ -72,6 +128,13 @@
     background-color: #202123;
 
     animation: fade-in 0.2s ease-in-out;
+
+    border: 1px solid lightgray;
+    box-shadow: 0 0 1.4em #000000;
+  }
+
+  .settings-container-hide {
+    animation: fade-out 0.13s ease-in-out;
   }
 
   .settings-container li {
@@ -79,7 +142,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 15px;
+    margin: 0 4px;
+    padding: 8px 0;
     border-bottom: 1px solid lightgray;
   }
 
@@ -88,21 +152,19 @@
     font-size: 24px;
   }
 
-  .checkbox-label {
+  .settings-theme-btn {
     width: 50px;
     height: 30px;
     border-radius: 10px;
     cursor: pointer;
-    position: absolute;
-    right: 10%;
   }
 
-  .checkbox-label input {
+  .settings-theme-btn input {
     position: absolute;
     display: none;
   }
 
-  .checkbox-label span {
+  .settings-theme-btn span {
     display: block;
     width: 100%;
     height: 100%;
@@ -112,11 +174,11 @@
     filter: drop-shadow(0 0 0.3em #ccdee3);
   }
 
-  .checkbox-label input:checked ~ span {
+  .settings-theme-btn input:checked ~ span {
     background-color: #343540;
   }
 
-  .checkbox-label span::before {
+  .settings-theme-btn span::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -129,7 +191,7 @@
     transition: 0.7s;
   }
 
-  .checkbox-label input:checked ~ span::before {
+  .settings-theme-btn input:checked ~ span::before {
     transform: translate(130%, -50%) rotateZ(200deg);
     box-shadow: inset 10px 0 0 0 lightgray;
   }
@@ -140,6 +202,7 @@
     font-size: 16px;
     border: none;
     cursor: pointer;
+    margin: 14px 10px 0 10px;
   }
 
   .settings-close:hover {
