@@ -1,5 +1,6 @@
 <script lang="ts">
   import Profile from "$lib/components/sidebar/Profile.svelte"
+  import SettingsButton from "$lib/components/sidebar/SettingsButton.svelte"
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
   import { PageType } from "$lib/types/Chat"
   import Icon from "@iconify/svelte"
@@ -61,7 +62,11 @@
   </div>
   <!--  -->
   <div class="side-bottom">
-    <Profile />
+    {#if isCollapsed}
+      <Profile />
+    {:else}
+      <SettingsButton />
+    {/if}
   </div>
 </div>
 <!--  -->
