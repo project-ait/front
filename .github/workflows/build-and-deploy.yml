@@ -76,6 +76,9 @@ jobs:
               env:
                 - name: NODE_ENV
                   value: production
+              start: npm run preview -- --host
+              install: npm install
+              build: npm run build
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
