@@ -71,7 +71,8 @@
       class="settings-close"
       on:click={saveAndClose}
       disabled={!$stateStore.showSettings}
-    >Save and Close</button>
+    >Save and Close
+    </button>
   </ul>
 {/if}
 
