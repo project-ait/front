@@ -1,6 +1,8 @@
 <script lang="ts">
   import { stateStore } from "$lib/stores/StateStore"
   import { DarkMode } from "$lib/utils/DarkMode"
+  import { onMount } from "svelte"
+  import { get } from "svelte/store"
 
   let isDark = true
   let closingAnimation = false
@@ -13,16 +15,29 @@
     localStorage.setItem("isDark", String(isDark))
   }
 
-  const hideSettings = () => {
+  const saveAndClose = () => {
+    console.log("Settings saved!")
+
+    // save to local storage
+    localStorage.setItem("model", $stateStore.url.model)
+    localStorage.setItem("server", $stateStore.url.server)
+
+    // closing animation
     closingAnimation = true
     setTimeout(() => {
       $stateStore.showSettings = false
       closingAnimation = false
-    }, 130)
+    }, 120) // it should be as (the animation duration - 10ms) for smooth closing
   }
+
+  onMount(() => {
+    $stateStore.url.model = localStorage.getItem("model") || ""
+    $stateStore.url.server = localStorage.getItem("server") || get(stateStore).url.server
+  })
 </script>
 
 {#if isSettingsShow}
+  <div class="settings-bg"></div>
   <ul class="settings-container" class:settings-container-hide={closingAnimation}>
     <li>
       <h1>Theme</h1>
@@ -52,11 +67,26 @@
         <span />
       </label>
     </li>
-    <button class="settings-close" on:click={hideSettings}>Save and Close</button>
+    <button
+      class="settings-close"
+      on:click={saveAndClose}
+      disabled={!$stateStore.showSettings}
+    >Save and Close</button>
   </ul>
 {/if}
 
 <style>
+  .settings-bg {
+    filter: blur(5px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.13);
+  }
+
   .settings-btn {
     background-color: #343540;
     border-radius: 10px;
@@ -131,6 +161,7 @@
 
     border: 1px solid lightgray;
     box-shadow: 0 0 1.4em #000000;
+    z-index: 10;
   }
 
   .settings-container-hide {
