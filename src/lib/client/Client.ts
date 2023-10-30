@@ -33,7 +33,13 @@ export class Client {
     }
 
 
-    public async send(msg: string, char: string = "Commander") {
+    // TODO get char/inst/preset from settings and/or env vars
+    public async send(
+        msg: string,
+        char: string = "Commander V3",
+        inst: string = "Commander V3",
+        preset: string = "Commander V3"
+    ) {
         this.updateUrl()
 
         if (this._url === "")
@@ -42,7 +48,10 @@ export class Client {
         await this.appendHistory(Author.User, msg)
 
         await this.llm.chat(msg, {
-            character: char
+            character: char,
+            instruction_template: inst,
+            preset: preset,
+            mode: "chat-instruct"
         }).then(res => {
             this.appendHistory(Author.Assistant, res)
         })
