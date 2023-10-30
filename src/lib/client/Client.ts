@@ -6,6 +6,9 @@ import { get } from "svelte/store"
 export class Client {
 
     private _url: string = get(stateStore).url.model
+    public llm = new LLM({ uri: this._url })
+
+    constructor() {}
 
     public updateUrl(): void {
         this._url = get(stateStore).url.model
@@ -13,10 +16,6 @@ export class Client {
             uri: this._url
         })
     }
-
-    public llm = new LLM({ uri: this._url })
-
-    constructor() {}
 
     public async appendHistory(author: Author, msg: string) {
         stateStore.update((state) => {

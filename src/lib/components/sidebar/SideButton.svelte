@@ -24,7 +24,9 @@
            src={iconSrc}
            width="28px"
       />
-      <h4 class="side-title"><slot/></h4>
+      <h4 class="side-title">
+        <slot />
+      </h4>
     </div>
   </a>
 </li>

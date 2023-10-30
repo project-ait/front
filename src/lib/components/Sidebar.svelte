@@ -14,8 +14,8 @@
 </script>
 
 <div
-  class:collapsed={isCollapsed}
   class="side-container dark:bg-dark bg-lightdark"
+  class:collapsed={isCollapsed}
 >
   <div class="sidebar-content">
     <div class="sidebar-top-content">
