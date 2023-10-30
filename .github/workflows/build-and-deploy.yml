@@ -74,11 +74,8 @@ jobs:
             app: node@18
             options:
               env:
-              - name: NODE_ENV
-                value: production
-            ports: "4173"
-            build: npm run build
-            start: npm run preview -- --host
+                - name: NODE_ENV
+                  value: production
             context:
               git:
                 url: git@github.com:${{ github.repository }}.git
