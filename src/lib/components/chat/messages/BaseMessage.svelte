@@ -53,6 +53,7 @@
     line-height: 1.5rem;
     align-self: center;
     word-break: break-word;
+    width: 100%;
   }
 
 </style>
