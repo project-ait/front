@@ -19,6 +19,7 @@
   />
   <div class="chat-msg">
     {@html decode(marked(message))}
+    <slot/>
   </div>
 </div>
 
