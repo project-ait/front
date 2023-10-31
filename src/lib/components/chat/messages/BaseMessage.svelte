@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { decode } from "html-entities"
   import { marked } from "marked"
 
   export let profilePic: string
@@ -17,7 +18,7 @@
     src={profilePic}
   />
   <div class="chat-msg">
-    {@html marked(message)}
+    {@html decode(marked(message))}
   </div>
 </div>
 
