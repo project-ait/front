@@ -5,20 +5,21 @@
   import { afterUpdate } from "svelte"
   import { get } from "svelte/store"
 
+
+  // extract contents within backticks
+  const regex = /`([^`]*)`/g
+
   export let message: string = ""
 
   let showingMessage = ""
 
   let delay = 0
-  message.split("").forEach(char => {
+  message.replaceAll(regex, "").trim().split("").forEach(char => {
     delay += get(stateStore).delay
     setTimeout(() => {
       showingMessage += char
     }, delay)
   })
-
-  // extract contents within backticks
-  const regex = /`([^`]*)`/g
 
   let raw_commands: Array<string> = [] // raw commands but extract only the first one
 
