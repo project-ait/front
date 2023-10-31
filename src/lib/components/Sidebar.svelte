@@ -1,4 +1,5 @@
 <script lang="ts">
+  import FakeMessageGenerator from "$lib/components/debug/FakeMessageGenerator.svelte"
   import Profile from "$lib/components/sidebar/Profile.svelte"
   import SettingsButton from "$lib/components/sidebar/SettingsButton.svelte"
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
@@ -59,6 +60,7 @@
         {/if}
       </SideButton>
     </ul>
+    <FakeMessageGenerator />
   </div>
   <!--  -->
   <div class="side-bottom">
