@@ -32,8 +32,17 @@ export class Client {
         })
     }
 
+    // not tested
+    public async removeLastHistory() {
+        stateStore.update((state) => {
+            return {
+                ...state,
+                history: state.history.slice(0, -1)
+            }
+        })
+    }
 
-    // TODO get char/inst/preset from settings and/or env vars
+// TODO get char/inst/preset from settings and/or env vars
     public async send(
         msg: string,
         char: string = "Commander V3",
@@ -46,14 +55,18 @@ export class Client {
             return  // TODO do something for empty url
 
         await this.appendHistory(Author.User, msg)
+        await this.appendHistory(Author.Assistant, "...") // TODO add loading animation or anything blabla
 
         await this.llm.chat(msg, {
             character: char,
             instruction_template: inst,
             preset: preset,
             mode: "chat-instruct"
-        }).then(res => {
-            this.appendHistory(Author.Assistant, res)
+        }).then(async (res) => {
+            if (get(stateStore).debug)
+                console.log("Response: ", res)
+            await this.removeLastHistory()
+            await this.appendHistory(Author.Assistant, res)
         })
     }
 
