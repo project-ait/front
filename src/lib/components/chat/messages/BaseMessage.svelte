@@ -19,7 +19,7 @@
   />
   <div class="chat-msg">
     {@html decode(marked(message))}
-    <slot/>
+    <slot />
   </div>
 </div>
 
@@ -33,8 +33,8 @@
     color: #f2f2f2;
 
     margin: 0.5rem auto;
-    min-width: 320px;
-    max-width: 60%;
+    min-width: 600px;
+    max-width: 35%;
 
     width: 100%;
   }
@@ -52,6 +52,7 @@
     font-weight: 400;
     line-height: 1.5rem;
     align-self: center;
+    word-break: break-word;
   }
 
 </style>

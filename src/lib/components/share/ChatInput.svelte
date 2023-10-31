@@ -56,7 +56,9 @@
     flex-direction: row;
     align-items: center;
 
-    width: 47vw;
+    min-width: 540px;
+    max-width: 35%;
+    width: 35%;
     padding: 8px 16px;
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.12);
