@@ -26,6 +26,7 @@
     "@tiptap/starter-kit": "^2.1.12",
     "@types/cookie": "^0.5.3",
     "autoprefixer": "^10.4.16",
+    "axios": "^1.6.0",
     "booga.js": "^0.3.0",
     "marked": "^9.1.2",
     "postcss": "^8.4.31",
@@ -37,9 +38,7 @@
     "tailwindcss": "^3.3.3",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2",
-    "vite": "^4.5.0"
-  },
-  "dependencies": {
+    "vite": "^4.5.0",
     "html-entities": "^2.4.0"
   }
 }

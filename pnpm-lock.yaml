@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  html-entities:
-    specifier: ^2.4.0
-    version: 2.4.0
-
 devDependencies:
   '@fontsource/fira-mono':
     specifier: ^5.0.8
@@ -49,9 +44,15 @@ devDependencies:
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.31)
+  axios:
+    specifier: ^1.6.0
+    version: 1.6.0
   booga.js:
     specifier: ^0.3.0
     version: 0.3.0
+  html-entities:
+    specifier: ^2.4.0
+    version: 2.4.0
   marked:
     specifier: ^9.1.2
     version: 9.1.2
@@ -893,8 +894,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /axios@1.5.1:
-    resolution: {integrity: sha512-Q28iYCWzNHjAm+yEAot5QaAMxhMghWLFVf7rRdwhUI+c2jix2DUXjAHXVi+s1ibs3mjPO/cCgbA++3BjD0vP/A==}
+  /axios@1.6.0:
+    resolution: {integrity: sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==}
     dependencies:
       follow-redirects: 1.15.3
       form-data: 4.0.0
@@ -921,7 +922,7 @@ packages:
   /booga.js@0.3.0:
     resolution: {integrity: sha512-hGj3cQ8jrTnq0jvlrCOgGA8SDBsE41kg8BNW3hSaotg/MdoimUIxOXg8RweOWGUUeQ7GIcAz1OKZ2lREGvRGxQ==}
     dependencies:
-      axios: 1.5.1
+      axios: 1.6.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -1303,7 +1304,7 @@ packages:
 
   /html-entities@2.4.0:
     resolution: {integrity: sha512-igBTJcNNNhvZFRtm8uA6xMY6xYleeDwn3PeBCkDz7tHttv4F2hsDI2aPgNERWzvRcNYHNT3ymRaQzllmXj4YsQ==}
-    dev: false
+    dev: true
 
   /import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
