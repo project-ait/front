@@ -1,7 +1,8 @@
 <script lang="ts">
   import BaseMessage from "$lib/components/chat/messages/BaseMessage.svelte";
   import { stateStore } from "$lib/stores/StateStore"
-  import { onMount } from "svelte"
+  import { Features } from "$lib/types/Features"
+  import { afterUpdate } from "svelte"
   import { get } from "svelte/store"
 
   export let message: string = ""
@@ -9,23 +10,56 @@
   // extract contents within backticks
   const regex = /`([^`]*)`/g
 
-  let commands: Array<string> = []
+  let raw_commands: Array<string> = [] // raw commands but extract only the first one
+
   let command: string // the first element of commands if it exists
+  let args: Array<string> = []
 
-  onMount(() => {
-    commands = message.match(regex) ?? []
+  let feature: Features
 
-    if (commands.length > 0) {
-      command = commands[0].slice(2, -1) // remove backticks
-      message = message.replaceAll(regex, "") // remove commands from the message
+  function getFeature(feature: string): Features {
+    return Object.values(Features).includes(feature as Features) ? feature as Features : Features.None
+  }
+
+  // TODO make better
+  let executed = false // for lifecycle, must be executed only once
+
+  afterUpdate(() => { // It cannot be $: can't use global return
+    if (executed) {
+      // If executed feature is once over, We don't have to execute more but don't want to remove from history.
+      // We don't have a plan to remove from history remove from the message when history is updated
+      // ~ until find better way
+      message = message.replaceAll(regex, "").trim()
+      return
     }
 
+    raw_commands = message.match(regex) ?? []
+
+    // preprocess message
+    if (raw_commands.length > 0) {
+      command = raw_commands[0].slice(2, -1) // remove backticks
+      message = message.replaceAll(regex, "").trim() // remove commands from the message
+
+      command = command.trim().toLowerCase() // TODO do not use like a buffer
+
+      const splitted = command.split(" ")
+      command = splitted[0] // root of cmd
+      args = splitted.slice(1) // else args
+    }
+
+    // fetch feature from command and check is that real exists one
+    feature = getFeature(command)
+
+    // debug and last processing stuffs
     if (get(stateStore).debug)
       console.log("Assisting!", {
         message,
-        commands,
-        command
+        commands: raw_commands,
+        args,
+        command,
+        "feature": feature,
       })
+    executed = true
   })
 </script>
 
