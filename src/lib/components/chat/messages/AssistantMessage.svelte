@@ -7,6 +7,16 @@
 
   export let message: string = ""
 
+  let showingMessage = ""
+
+  let delay = 0
+  message.split("").forEach(char => {
+    delay += get(stateStore).delay
+    setTimeout(() => {
+      showingMessage += char
+    }, delay)
+  })
+
   // extract contents within backticks
   const regex = /`([^`]*)`/g
 
@@ -65,6 +75,6 @@
 
 <BaseMessage
   bgColor="rgba(0, 0, 0, 0.05)"
-  message={message}
+  message={showingMessage}
   profilePic="/llama2.png"
 />

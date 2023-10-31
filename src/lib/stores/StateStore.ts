@@ -22,7 +22,8 @@ export interface StateStore {
         server: string
         model: string
     },
-    debug: boolean
+    debug: boolean,
+    delay: number
 }
 
 
@@ -40,5 +41,6 @@ export const stateStore = writable<StateStore>({
         server: "localhost:1777",
         model: ""
     },
-    debug: false
+    debug: false,
+    delay: 30
 })
