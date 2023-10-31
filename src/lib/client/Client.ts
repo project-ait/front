@@ -5,15 +5,15 @@ import { get } from "svelte/store"
 
 export class Client {
 
-    private _url: string = get(stateStore).url.model
-    public llm = new LLM({ uri: this._url })
+    private _modelUrl: string = get(stateStore).url.model
+    public llm = new LLM({ uri: this._modelUrl })
 
     constructor() {}
 
     public updateUrl(): void {
-        this._url = get(stateStore).url.model
+        this._modelUrl = get(stateStore).url.model
         this.llm = new LLM({
-            uri: this._url
+            uri: this._modelUrl
         })
     }
 
@@ -51,7 +51,7 @@ export class Client {
     ) {
         this.updateUrl()
 
-        if (this._url === "")
+        if (this._modelUrl === "")
             return  // TODO do something for empty url
 
         await this.appendHistory(Author.User, msg)
