@@ -21,6 +21,7 @@
     // save to local storage
     localStorage.setItem("model", $stateStore.url.model)
     localStorage.setItem("server", $stateStore.url.server)
+    localStorage.setItem("debug", String($stateStore.debug))
 
     // closing animation
     closingAnimation = true
@@ -33,6 +34,7 @@
   onMount(() => {
     $stateStore.url.model = localStorage.getItem("model") || ""
     $stateStore.url.server = localStorage.getItem("server") || get(stateStore).url.server
+    $stateStore.debug = localStorage.getItem("debug") === "true" || false
   })
 </script>
 
