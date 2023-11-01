@@ -78,4 +78,22 @@
   bgColor="rgba(0, 0, 0, 0.05)"
   message={showingMessage}
   profilePic="/llama2.png"
-/>
+>
+  {#if feature !== Features.None}
+    <div class="feat-box">
+      {#if feature === Features.Weather}
+        <FeatWeather />
+      {/if}
+    </div>
+  {/if}
+</BaseMessage>
+
+<style>
+  .feat-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 6px auto;
+  }
+</style>
