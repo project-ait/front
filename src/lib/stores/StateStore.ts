@@ -23,7 +23,8 @@ export interface StateStore {
         model: string
     },
     debug: boolean,
-    delay: number
+    delay: number,
+    translate: boolean
 }
 
 
@@ -42,5 +43,6 @@ export const stateStore = writable<StateStore>({
         model: ""
     },
     debug: false,
-    delay: 30
+    delay: 30,
+    translate: true
 })

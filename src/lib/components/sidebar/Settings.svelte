@@ -69,6 +69,13 @@
         <span />
       </label>
     </li>
+    <li>
+      <h1>Translate</h1>
+      <label class="settings-btn">
+        <input type="checkbox" bind:checked={$stateStore.translate} />
+        <span />
+      </label>
+    </li>
     <button
       class="settings-close"
       on:click={saveAndClose}
@@ -143,7 +150,6 @@
     background-color: #343540;
     color: white;
     font-size: 16px;
-    margin: 5px;
   }
 
   .settings-container {
@@ -177,7 +183,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 0 4px;
-    padding: 8px 0;
+    padding: 12px 9px;
     border-bottom: 1px solid lightgray;
   }
 
