@@ -46,6 +46,15 @@ export const client = new class Client {
         })
     }
 
+    public async clearHistory() {
+        stateStore.update((state) => {
+            return {
+                ...state,
+                history: []
+            }
+        })
+    }
+
     // not tested
     public async removeLastHistory() {
         stateStore.update((state) => {
@@ -78,7 +87,20 @@ export const client = new class Client {
             mode: "chat-instruct"
         }).then(async (res) => {
             await this.removeLastHistory()
-            await this.appendHistory(Author.Assistant, res)
+            if (get(stateStore).translate) {
+                const regex = /`([^`]*)`/g
+
+                // extract commands from raw response
+                const commands = msg.match(regex) ?? []
+
+                const translated = await this.translateToKr(res)
+
+                console.log(commands, translated)
+
+                await this.appendHistory(Author.Assistant, commands + translated)
+            } else {
+                await this.appendHistory(Author.Assistant, res)
+            }
         })
     }
 
@@ -89,7 +111,13 @@ export const client = new class Client {
     }
 
     public async translateToKr(content: string): Promise<string> {
-        return await this._axios.post(`${this._serverUrl}/service/translate/toKr`, content).then(res => res.data)
+        this.updateServerUrl()
+
+        const res = await this._axios.post(`${this._serverUrl}/service/translate/toKr`, {
+            text: content
+        })
+
+        return res.data.text
     }
 
 }
