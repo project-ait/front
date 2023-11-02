@@ -14,6 +14,10 @@
     await client.appendHistory(Author.Assistant, " ` weather` Yes sir!")
   }
 
+  const sendTrain = async () => {
+    await client.appendHistory(Author.Assistant, " ` train` Yes sir!")
+  }
+
   const clearChat = async () => {
     await client.clearHistory()
   }
@@ -30,7 +34,9 @@
       <button on:click={sendAs}>Send</button>
     </div>
     <div id="fake-msg-input">
+      <!-- Get feature names from enum and select-send -->
       <input type="button" value="Weather" on:click={sendWeather} />
+      <input type="button" value="Train" on:click={sendTrain} />
       <input type="button" value="Clear History" on:click={clearChat} />
     </div>
   </div>
