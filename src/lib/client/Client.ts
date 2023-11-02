@@ -1,4 +1,5 @@
 import { stateStore } from "$lib/stores/StateStore"
+import type { TrainResponse } from "$lib/types/api/TrainResponse"
 import type { WeatherInfo } from "$lib/types/api/WeatherResponse"
 import { Author } from "$lib/types/Chat"
 import axios from "axios"
@@ -28,7 +29,15 @@ export const client = new class Client {
     }
 
     public updateServerUrl(): void {
-        this._serverUrl = get(stateStore).url.server
+        let url = get(stateStore).url.server
+
+        if (url.endsWith("/"))
+            url = url.slice(0, -1)
+        else {
+            url += "/"
+        }
+
+        this._serverUrl = url
     }
 
     public async appendHistory(author: Author, msg: string) {
@@ -139,4 +148,21 @@ export const client = new class Client {
 
         return res.data.text
     }
+
+    public async getTrainInfo(station: string): Promise<TrainResponse> {
+        const res = await this._axios.post(`${this._serverUrl}/service/subway`, {
+            station_name: station
+        }).then(res => res.data)
+
+        console.log(res)
+
+        return <TrainResponse>{
+            status: {
+                code: res.error_msg.code,
+                message: res.error_msg.message,
+                total: res.error_msg.total
+            }
+        }
+    }
+
 }
