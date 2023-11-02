@@ -1,20 +1,34 @@
 import { stateStore } from "$lib/stores/StateStore"
+import type { WeatherInfo } from "$lib/types/api/WeatherResponse"
 import { Author } from "$lib/types/Chat"
+import axios from "axios"
 import { Client as LLM } from "booga.js"
 import { get } from "svelte/store"
 
 export class Client {
 
     private _modelUrl: string = get(stateStore).url.model
+    private _serverUrl: string = get(stateStore).url.server
+
     public llm = new LLM({ uri: this._modelUrl })
+    public _axios = axios.create({
+        baseURL: this._serverUrl,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        }
+    })
 
     constructor() {}
 
-    public updateUrl(): void {
+    public updateModelUrl(): void {
         this._modelUrl = get(stateStore).url.model
         this.llm = new LLM({
             uri: this._modelUrl
         })
+    }
+
+    public updateServerUrl(): void {
+        this._serverUrl = get(stateStore).url.server
     }
 
     public async appendHistory(author: Author, msg: string) {
@@ -49,7 +63,7 @@ export class Client {
         inst: string = "Commander V3",
         preset: string = "Commander V3"
     ) {
-        this.updateUrl()
+        this.updateModelUrl()
 
         if (this._modelUrl === "")
             return  // TODO do something for empty url
@@ -70,6 +84,11 @@ export class Client {
         })
     }
 
+    public async getWeather(): Promise<WeatherInfo | void> {
+        this.updateServerUrl()
+
+        return await this._axios.get(`${this._serverUrl}/service/weather`).then(res => res.data)
+    }
 }
 
 export const client = new Client()
