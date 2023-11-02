@@ -1,8 +1,13 @@
 <script lang="ts">
   export let gradiant: boolean = false
+  export let bgColor: string = '#F7F7F7'
 </script>
 
-<div class="feat-bg" class:gradiant={gradiant}>
+<div
+  class="feat-bg"
+  class:gradiant={gradiant}
+  style="background-color: {bgColor};"
+>
   <slot />
 </div>
 
@@ -12,7 +17,6 @@
   }
 
   .feat-bg {
-    background-color: #F7F7F7;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     color: #1F1F21;
     border-radius: 10px;
