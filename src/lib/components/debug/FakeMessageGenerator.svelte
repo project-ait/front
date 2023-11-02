@@ -19,7 +19,7 @@
   }
 </script>
 
-{#if $stateStore.debug}
+{#if $stateStore.debug && $stateStore.isSidebarCollapsed}
   <div id="fmsg">
     <div id="fake-msg-input">
       <h3>Is this a bot?</h3>
