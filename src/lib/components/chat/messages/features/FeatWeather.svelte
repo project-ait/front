@@ -32,7 +32,7 @@
     {/if}
   {:then res}
     <div class="appearFromVoid weather-box">
-      <BaseFeatureMessage>
+      <BaseFeatureMessage gradiant={true}>
         {dateClient.getFullMonth()}.{dateClient.getDate()}. {dateClient.getDayOfWeekCurrentKr()}
         요일 {dateClient.getHours()}시 날씨<br />
         <hr class="weather-box-hr" />
