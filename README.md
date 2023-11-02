@@ -1,38 +1,42 @@
-# create-svelte
+# AIT
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## [>> CLICK HERE <<](https://port-0-front-jvpb2mlo5d0nyx.sel5.cloudtype.app/chat)
 
-## Creating a project
+AI Assistant for custom features.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Preview
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Development
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Start dev server
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm i  # npm/yarn whatever
+pnpm dev
 ```
 
-## Building
-
-To create a production version of your app:
+- Build and preview
 
 ```bash
-npm run build
-```
+pnpm build
+pnpm preview # '--host' argument for network access
+```  
 
-You can preview the production build with `npm run preview`.
+### Prerequisites
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- [AIT 서버](https://github.com/project-ait/server)가 필요합니다.
+    - 자세한 실행 방법은 [Project-AIT/Server의 README](https://github.com/project-ait/server/blob/main/README.md)를 확인하세요.
+    - 설정의 Server API에 해당합니다.
+- Oobabooga의 [text-generation-webui](https://github.com/oobabooga/text-generation-webui)가 필요합니다.
+    - **!! 모델을 미리 로드해야 합니다 !!**
+    - `--api --listen --public-api` 인자와 함께 실행하세요.
+        - `--public-api` 인자로 인해 다음과 같은 형식의 공개 터널이 생성됩니다: `*.trycloudflare.com`
+    - 설정의 Model API에 해당합니다.
+
+| Place URLs                                 | Text Generation WebUI                         |
+|--------------------------------------------|-----------------------------------------------|
+| ![Settings](./.github/assets/settings.png) | ![Flags](./.github/assets/text-gen-flags.png) |
+
+### Project Structure
+
+Find out
