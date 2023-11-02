@@ -29,7 +29,7 @@
       if (get(stateStore).debug)
         console.log("Translated Text Submit: ", translated)
 
-      await client.send(translated)
+      await client.send(translated, $stateStore.input)
     } else {
       await client.send($stateStore.input)
     }

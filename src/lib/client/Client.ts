@@ -68,6 +68,7 @@ export const client = new class Client {
 // TODO get char/inst/preset from settings and/or env vars
     public async send(
         msg: string,
+        visibleMessage?: string | undefined,
         char: string = "Commander",
         inst: string = "Commander",
         preset: string = "Commander"
@@ -77,7 +78,11 @@ export const client = new class Client {
         if (this._modelUrl === "")
             return  // TODO do something for empty url
 
-        await this.appendHistory(Author.User, msg)
+        if (visibleMessage !== undefined)
+            await this.appendHistory(Author.User, visibleMessage)
+        else
+            await this.appendHistory(Author.User, msg)
+
         await this.appendHistory(Author.Assistant, "...") // TODO add loading animation or anything blabla
 
         await this.llm.chat(msg, {
