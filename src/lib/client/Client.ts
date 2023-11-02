@@ -5,7 +5,7 @@ import axios from "axios"
 import { Client as LLM } from "booga.js"
 import { get } from "svelte/store"
 
-export class Client {
+export const client = new class Client {
 
     private _modelUrl: string = get(stateStore).url.model
     private _serverUrl: string = get(stateStore).url.server
@@ -59,9 +59,9 @@ export class Client {
 // TODO get char/inst/preset from settings and/or env vars
     public async send(
         msg: string,
-        char: string = "Commander V3",
-        inst: string = "Commander V3",
-        preset: string = "Commander V3"
+        char: string = "Commander",
+        inst: string = "Commander",
+        preset: string = "Commander"
     ) {
         this.updateModelUrl()
 
@@ -77,8 +77,6 @@ export class Client {
             preset: preset,
             mode: "chat-instruct"
         }).then(async (res) => {
-            if (get(stateStore).debug)
-                console.log("Response: ", res)
             await this.removeLastHistory()
             await this.appendHistory(Author.Assistant, res)
         })
@@ -89,6 +87,9 @@ export class Client {
 
         return await this._axios.get(`${this._serverUrl}/service/weather`).then(res => res.data)
     }
-}
 
-export const client = new Client()
+    public async translateToKr(content: string): Promise<string> {
+        return await this._axios.post(`${this._serverUrl}/service/translate/toKr`, content).then(res => res.data)
+    }
+
+}

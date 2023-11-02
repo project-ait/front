@@ -63,15 +63,19 @@
     feature = getFeature(command)
 
     // debug and last processing stuffs
-    if (get(stateStore).debug)
-      console.log("Assisting!", {
-        message,
-        commands: raw_commands,
-        args,
-        command,
-        "feature": feature,
-      })
     executed = true
+
+    if (get(stateStore).debug)
+      if (message === "...") console.log("Waiting for response...")
+      else {
+        console.log("Assisting!", {
+          message,
+          commands: raw_commands,
+          args,
+          command,
+          "feature": feature,
+        })
+      }
   })
 </script>
 
