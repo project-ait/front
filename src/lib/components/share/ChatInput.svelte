@@ -3,6 +3,7 @@
   import { stateStore } from "$lib/stores/StateStore"
   import Icon from "@iconify/svelte"
   import { onMount } from "svelte"
+  import { get } from "svelte/store"
 
   let text: string = ""
 
@@ -16,7 +17,8 @@
     if (text.length === 0) return
     if (text.trim() === "") return
 
-    console.log("Text Submitted:", text)
+    if (get(stateStore).debug)
+      console.log("Text Submitted:", text)
 
     $stateStore.input = text
     text = ""
