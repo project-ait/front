@@ -9,4 +9,5 @@ export interface WeatherInfo {
     wd: string
     fdst: number
     ffdst: number
+    dong: string
 }

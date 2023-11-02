@@ -10,7 +10,7 @@
     border-radius: 10px;
     min-width: 480px;
 
-    padding: 12px 16px;
+    padding: 12px 16px 8px 16px;
 
     border: 6px solid rgba(199, 191, 191, 0.86);
     font-family: Cabin, serif;

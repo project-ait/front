@@ -11,6 +11,11 @@
   const regex = /`([^`]*)`/g
 
   export let message: string = ""
+  //
+  // if (get(stateStore).translate) {
+  //   client.translateToKr(message)
+  //     .then(res => message = res)
+  // }
 
   let showingMessage = ""
 

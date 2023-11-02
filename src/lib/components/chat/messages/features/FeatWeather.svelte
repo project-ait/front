@@ -35,7 +35,7 @@
       <BaseFeatureMessage>
         {dateClient.getFullMonth()}.{dateClient.getDate()}. {dateClient.getDayOfWeekCurrentKr()}
         요일 {dateClient.getHours()}시 날씨<br />
-        <hr />
+        <hr class="weather-box-hr" />
         <div class="weather-content">
           <img
             class="weather-icon"
@@ -53,6 +53,8 @@
             <p>강수량: {res?.rain}mm</p>
           </div>
         </div>
+        <hr class="weather-box-hr-end" />
+        <p class="weather-dong">{res?.dong}</p>
       </BaseFeatureMessage>
     </div>
   {:catch error}
@@ -61,6 +63,11 @@
 </div>
 
 <style>
+  .weather-dong {
+    font-size: 0.9rem;
+    margin-top: 4px;
+  }
+
   .weather-box {
     display: flex;
     flex-direction: column;
@@ -77,8 +84,12 @@
     justify-content: flex-start;
   }
 
-  .weather-box hr {
-    margin-bottom: 8px;
+  .weather-box-hr {
+    margin-bottom: 12px;
+  }
+
+  .weather-box-hr-end {
+    margin-top: 12px;
   }
 
   .weather-icon {
