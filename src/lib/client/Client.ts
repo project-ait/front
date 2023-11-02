@@ -87,20 +87,25 @@ export const client = new class Client {
             mode: "chat-instruct"
         }).then(async (res) => {
             await this.removeLastHistory()
-            if (get(stateStore).translate) {
-                const regex = /`([^`]*)`/g
+            if (!get(stateStore).translate)
+                return await this.appendHistory(Author.Assistant, res)
 
-                // extract commands from raw response
-                const commands = msg.match(regex) ?? []
+            // translate without a command
+            const regex: RegExp = /`([^`]*)`/g
 
-                const translated = await this.translateToKr(res)
+            // [`cmd1`, `cmd2 arg`]
+            const commands = res.match(regex)
 
-                console.log(commands, translated)
+            // `cmd1` `cmd2 arg`
+            const mergedCommands = commands?.join(" ") ?? ""
 
-                await this.appendHistory(Author.Assistant, commands + translated)
-            } else {
-                await this.appendHistory(Author.Assistant, res)
-            }
+            // translated message without commands
+            const translated = await this.translateToKr(res.replace(regex, "").trim())
+
+            console.log(commands)
+            console.log(translated)
+
+            await this.appendHistory(Author.Assistant, `${translated} ${mergedCommands}`)
         })
     }
 
