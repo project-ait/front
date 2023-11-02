@@ -46,7 +46,7 @@
   <button
     class="chat-send-btn"
     class:chat-send-icon-submittable={(text.length > 0)}
-    on:submit={submitText}
+    on:click={submitText}
   >
     <Icon icon="formkit:submit" />
   </button>
