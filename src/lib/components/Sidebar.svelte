@@ -3,14 +3,17 @@
   import Profile from "$lib/components/sidebar/Profile.svelte"
   import SettingsButton from "$lib/components/sidebar/SettingsButton.svelte"
   import SideButton from "$lib/components/sidebar/SideButton.svelte"
+  import { stateStore } from "$lib/stores/StateStore"
   import { PageType } from "$lib/types/Chat"
   import Icon from "@iconify/svelte"
 
   let isCollapsed = (localStorage.getItem("isCollapsed") === "true")
 
   function toggleCollapse() {
+    // TODO merge this state to stateStore
     isCollapsed = !isCollapsed
     localStorage.setItem("isCollapsed", isCollapsed.toString())
+    $stateStore.isSidebarCollapsed = isCollapsed
   }
 </script>
 

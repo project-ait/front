@@ -24,7 +24,8 @@ export interface StateStore {
     },
     debug: boolean,
     delay: number,
-    translate: boolean
+    translate: boolean,
+    isSidebarCollapsed?: boolean
 }
 
 
@@ -33,7 +34,7 @@ export const stateStore = writable<StateStore>({
     appearance: Appearance.Dark,
     pageType: PageType.Chat,
     waiting: false, // is waiting AI response?
-    input: "", // it must be updating when send the message for avoid the bugs (and trash request),
+    input: "", // it must be updating when send the message for avoid the bugs (and trash request).
     history: [{
         author: Author.Assistant,
         message: "Hello! I'm your private assistant! How can I help you today? 🤖",
@@ -44,5 +45,6 @@ export const stateStore = writable<StateStore>({
     },
     debug: false,
     delay: 30,
-    translate: true
+    translate: true,
+    isSidebarCollapsed: false // only for checking; updating this will not change the UI.
 })
