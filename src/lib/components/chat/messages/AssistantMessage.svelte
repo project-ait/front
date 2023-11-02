@@ -1,5 +1,6 @@
 <script lang="ts">
   import BaseMessage from "$lib/components/chat/messages/BaseMessage.svelte";
+  import FeatWeather from "$lib/components/chat/messages/features/FeatWeather.svelte"
   import { stateStore } from "$lib/stores/StateStore"
   import { Features } from "$lib/types/Features"
   import { afterUpdate } from "svelte"
