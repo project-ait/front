@@ -195,6 +195,10 @@
     padding-top: 10px;
   }
 
+  .side-buttons p {
+    animation: opacity 0.5s ease-in-out;
+  }
+
 
   .side-bottom {
     display: flex;
