@@ -84,6 +84,7 @@
   .weather-icon {
     color: #000;
     animation: spin 30s linear infinite;
+    margin-left: 12px;
   }
 
   @keyframes spin {
