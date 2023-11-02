@@ -23,7 +23,16 @@
     $stateStore.input = text
     text = ""
 
-    await client.send($stateStore.input)
+    if (get(stateStore).translate) {
+      const translated = await client.translateToEn($stateStore.input)
+
+      if (get(stateStore).debug)
+        console.log("Translated Text Submit: ", translated)
+
+      await client.send(translated)
+    } else {
+      await client.send($stateStore.input)
+    }
   }
 
   const handleKeyDown = (event: KeyboardEvent) => {

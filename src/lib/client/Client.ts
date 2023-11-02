@@ -125,4 +125,13 @@ export const client = new class Client {
         return res.data.text
     }
 
+    public async translateToEn(content: string): Promise<string> {
+        this.updateServerUrl()
+
+        const res = await this._axios.post(`${this._serverUrl}/service/translate/toEn`, {
+            text: content
+        })
+
+        return res.data.text
+    }
 }
