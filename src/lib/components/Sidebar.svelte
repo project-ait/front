@@ -9,6 +9,8 @@
 
   let isCollapsed = (localStorage.getItem("isCollapsed") === "true")
 
+  $stateStore.isSidebarCollapsed = isCollapsed
+
   function toggleCollapse() {
     // TODO merge this state to stateStore
     isCollapsed = !isCollapsed
@@ -29,7 +31,7 @@
           <i>
             <Icon icon="ph:chat-bold" />
           </i>
-          <span>Project Title Here</span>
+          <span>Project AIT</span>
         </a>
       {/if}
       <button class="side-toggle-coll" on:click={toggleCollapse}>
